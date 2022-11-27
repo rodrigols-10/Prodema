@@ -9,7 +9,7 @@ h1{
 /* ----------HEADER---------- */
 header{
     display: flex;
-    background-image: url("/Assets/banner3.png");
+    background-image: url("Assets/banner3.png");
     background-color: #cccccc;
     min-height: 250px;
     flex-direction: column;
