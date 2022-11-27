@@ -1,0 +1,47 @@
+.notification{
+    background-color: rgb(220, 219, 248);
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+}
+
+.btn_info{
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn_info .btn{
+    border-radius: 1rem;
+}
+
+.info{
+    margin: 5% 8%;
+}
+
+.noticias{
+}
+
+.parceiros{
+    padding: 1rem 0;
+    background-color: rgb(220, 219, 248);
+}
+.parceiros h1{
+    margin-left: 8%;
+}
+.lista-brasoes{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1rem 3%;
+}
+
+.brasao{
+    min-width: 69px;
+    color: black;
+    text-decoration:none;
+    text-align: center;
+}
+.brasao img{
+    height: 80px;
+}
