@@ -35,7 +35,10 @@
         </ul>
       </div>
       <!-- IMAGEM - LOGO DA PRODEMA -->
-      <img id="nav-logo" src="Assets/logo2.png" alt="logotipo da Prodema">
+      <div class="nav-logo">
+        <img id="logo" src="Assets/logo2.png" alt="logotipo da Prodema">
+        <p>Doutorado em Desenvolvimento e Meio Ambiente</p>
+      </div>
         <!-- Navbar sticky -->
         <nav id="navbar_top" class="navbar navbar-expand-md navbar-dark">
           <div class="container-fluid">
@@ -67,7 +70,7 @@
               <!-- Barra de pesquisa -->
               <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
-                <button class="btn btn-outline-warning" type="submit">
+                <button class="btn btn-primary" type="submit">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
               </form>
@@ -78,11 +81,11 @@
 
       <main>
         <section class="notification">
-            <div class="py-2">
+            <div class="py-2"> <!--Espaço antes do texto--> 
             </div>
             <div class="container">
-                <h1>Exemplo de Informativo</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h1>Rede Prodema</h1>
+                <p>O Curso de Doutorado em Desenvolvimento e Meio Ambiente, Associação Plena em Rede (UFPI, UFC, UFRN, UFPB, UFPE, UFS, UESC, e, mais recentemente, a UFERSA), qualifica recursos humanos em nível de doutorado interdisciplinar na Região Nordeste desde o ano de 2010, tendo contribuído para a formação de centenas de doutores. Antes disso, as Instituições se integravam através do Programa Regional de Pós-Graduação em Desenvolvimento e Meio Ambiente - autodenominado Rede PRODEMA - que atua em nível de Mestrado.</p>
                 <p class="btn_info"><a class="btn btn-sm btn-outline-primary" href="#">Mais informações</a></p>
             </div>
         </section>
@@ -103,7 +106,7 @@
         </section>
         <!-- INSTITUTOS PARCEIROS -->
         <section class="parceiros">
-          <h1>Parceiros</h1>
+          <h1>IES</h1>
           <div class="lista-brasoes">
             <a title="Universidade Federal do Piauí" class="brasao" href="#">
               <img src="Assets/ufpi.png" alt="brasao da UFPI">
@@ -116,6 +119,10 @@
             <a title="Universidade Federal do Rio Grande do Norte" class="brasao" href="#">
               <img src="Assets/ufrn.png" alt="brasao da UFRN">
               <h6>UFRN</h4>
+            </a>
+            <a title="Universidade Federal Rural do Semi-Árido" class="brasao" href="#">
+              <img src="Assets/ufersa.png" alt="brasao da UFERSA">
+              <h6>UFERSA</h4>
             </a>
             <a title="Universidade Federal da Paraíba" class="brasao" href="#">
               <img src="Assets/ufpb.png" alt="brasao da UFPB">
@@ -168,11 +175,13 @@
             window.addEventListener('scroll', function() {
                 if (window.scrollY > height_change) {
                     document.getElementById('navbar_top').classList.add('fixed-top');
+                    document.getElementById('navbar_top').style.backgroundColor = "rgba(0,136,169,0.8)";
                     //document.body.style.paddingTop = navbar_height + 'px';
                 } else {
                     document.getElementById('navbar_top').classList.remove('fixed-top');
                     // remove padding top from body
-                    document.body.style.paddingTop = '0';
+                    // document.body.style.paddingTop = '0';
+                    document.getElementById('navbar_top').style.backgroundColor = "transparent";
                 } 
             });
         });
