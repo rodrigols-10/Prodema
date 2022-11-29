@@ -116,6 +116,7 @@ footer p{
 .rodape{
     display: flex;
     justify-content: space-around;
+    align-items: center;
     flex-wrap: wrap;
     padding: 3% 3%;
 }
@@ -140,24 +141,30 @@ footer p{
 }
 .social{
     text-align: center;
-    padding: 0 2rem;
+    padding: 3rem 2rem;
     border-left: 1px solid white;
     border-right: 1px solid white;
+    border-top: none;
+    border-bottom: none;
 }
 .social h1{
     font-size: 1rem;
 }
-@media (max-width: 800px){
+@media (max-width: 850px){
     .rodape{
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        align-items: stretch;
         padding: 3% 3%;
         gap:10px;
     }
     .social{
         border-left: none;
         border-right: none;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        padding: 2rem 0;
     }
 
 }
