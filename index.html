@@ -50,9 +50,15 @@
             </button>
             <!-- LISTA DO MENU -->
             <div class="collapse navbar-collapse" id="navbarCollapse">
-              <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Sobre o curso</a>
+              <ul class="navbar-nav me-auto">
+                <li class="nav-item dropdown">
+                  <a class="nav-link active" aria-current="page" href="#">Sobre o curso <i aria-hidden="true" class="fa fa-caret-down"></i></a>
+                  <!-- DROPDOWN -->
+                  <div class="dropdown-content">
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" href="#">Estrutura de rede</a>
@@ -274,7 +280,7 @@
             window.addEventListener('scroll', function() {
                 if (window.scrollY > height_change) {
                     document.getElementById('navbar_top').classList.add('fixed-top');
-                    document.getElementById('navbar_top').style.backgroundColor = "rgba(0,136,169,0.8)";
+                    document.getElementById('navbar_top').style.backgroundColor = "rgba(0,136,169,0.9)";
                     //document.body.style.paddingTop = navbar_height + 'px';
                 } else {
                     document.getElementById('navbar_top').classList.remove('fixed-top');

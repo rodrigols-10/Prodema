@@ -42,6 +42,10 @@ header{
     }
 }
 
+.navbar{
+    padding: 0;
+}
+
 nav{
     width: 100%;
     position: sticky;
@@ -61,21 +65,25 @@ nav{
     height: 55px;
 }
 
-.nav-item{
+.nav-link{
     text-shadow: 2px 2px 3px black;
+    padding: 10px 0;
 }
-.nav-item:hover{
+
+.nav-link:hover{
     background-color: rgba(0, 93, 169, 0.5);
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .form-control{
     font-size: 0.8rem;
     border-radius: 1.3rem;
+    margin: 4px 0;
 }
 
 .d-flex .btn{
     border-radius: 1.2rem;
+    margin: 4px 0;
 }
 
 .options{
@@ -98,6 +106,51 @@ nav{
     color: white;
     text-decoration:none;
 }
+/* ------DROPDOWN MENU------- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown .dropdown-content {
+    /* display: none; */
+    position: absolute;
+    border-top: 0px solid #e9fcfc;
+    /* border-bottom: 0px solid #e9fcfc; */
+    /* border-radius: 3px; */
+    /* background-color: #ffffff; */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-out;/*height 0.3s linear, visibility 0.3s linear, opacity 0.3s linear, border-width 0.3s linear;*/
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+    border-width: 4px;
+    visibility:visible;
+    opacity: 1;
+  }
+
+  .dropdown-content a {
+    color: white;
+    background-color: rgba(0, 81, 99, 0.9);
+    padding: 7px 16px;
+    text-decoration: none;
+    text-shadow: none;
+    border: 1px solid #e9fcfc;
+    /* border-radius: 5px; */
+    display: block;
+    transition: background-color 0.5s linear, color 0.3s linear;
+  }
+  .dropdown-content a:hover {
+    background-color: #e9fcfc;
+    color:rgb(1, 76, 138);
+  }
+
+
 
 
 /* ----------FOOTER---------- */
