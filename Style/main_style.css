@@ -68,11 +68,16 @@ nav{
 .nav-link{
     text-shadow: 2px 2px 3px black;
     padding: 10px 0;
+    color: white;
+    background-color: transparent;
+    border: none;
     transition: background-color 0.3s linear;
+    user-select: none; /*DISABLE TEXT SELECTION ON MENU*/
 }
 
 .nav-link:hover{
     background-color: rgba(0, 93, 169, 0.6);
+    color: white;
     /* border-radius: 10px; */
 }
 
@@ -129,25 +134,25 @@ nav{
         overflow: hidden;
         transition: all 0.3s ease-out;/*height 0.3s linear, visibility 0.3s linear, opacity 0.3s linear, border-width 0.3s linear;*/
       }
-      .dropdown:hover .dropdown-content {
+      /* .dropdown:hover .dropdown-content {
         display: block;
         border-width: 4px;
         visibility:visible;
         opacity: 1;
-      }
+      } */
       .dropdown i { /*ISTO É PARA A SETA NO MENU GIRAR PARA CIMA*/
         transition: transform 0.3s ease-out;
       }
-      .dropdown:hover i {
+      /* .dropdown:hover i {
         transform: rotate(-180deg);
-      }
+      } */
       .dropdown-content a {
         color: white;
         background-color: rgba(0, 93, 169,0.9);/*rgba(0, 81, 99, 0.9);*/
         padding: 7px 16px;
         text-decoration: none;
         text-shadow: none;
-        border-top: 1px solid #e9fcfc;
+        border-bottom: 1px solid #acbdbd;
         /* border-radius: 5px; */
         display: block;
         transition: background-color 0.5s linear, color 0.3s linear;
@@ -172,18 +177,18 @@ nav{
         overflow: hidden;
         transition: all 0.3s ease-out;/*height 0.3s linear, visibility 0.3s linear, opacity 0.3s linear, border-width 0.3s linear;*/
       }
-      .dropdown:hover .dropdown-content {
+      /* .dropdown:hover .dropdown-content {
         display: block;
         border-width: 4px;
         visibility:visible;
         height:145px;
-      }
+      } */
       .dropdown i { /*ISTO É PARA A SETA NO MENU GIRAR PARA CIMA*/
         transition: transform 0.3s ease-out;
       }
-      .dropdown:hover i {
+      /* .dropdown:hover i {
         transform: rotate(-180deg);
-      }
+      } */
 
       .dropdown-content a {
         color: white;
@@ -191,7 +196,7 @@ nav{
         padding: 7px 16px;
         text-decoration: none;
         text-shadow: none;
-        border-top: 1px solid #e9fcfc;
+        border-bottom: 1px solid #acbdbd;
         /* border-radius: 5px; */
         display: block;
         transition: background-color 0.5s linear, color 0.3s linear;

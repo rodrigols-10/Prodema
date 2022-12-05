@@ -52,26 +52,33 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <ul class="navbar-nav me-auto">
                 <li class="nav-item dropdown">
-                  <a class="nav-link active" aria-current="page" aria-expanded="true" href="#">Sobre o curso <i aria-hidden="true" class="fa-solid fa-angle-down"></i></a>
+                  <button class="nav-link active" aria-current="page" aria-expanded="true">Sobre o curso <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
                   <!-- DROPDOWN -->
-                  <div class="dropdown-content">
-                    <a href="#" class="nav-link">Apresentação</a>
+                  <div class="dropdown-content" style="visibility:hidden">
+                    <a href="#">Apresentação</a>
                     <a href="#">Corpo Docente</a>
                     <a href="#">Processo Seletivo</a>
                     <a href="#">Documentos Importantes</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">Estrutura de rede</a>
+                  <a class="nav-link" href="#">Estrutura de rede</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Estrutura Curricular</a>
+                <li class="nav-item dropdown">
+                  <button class="nav-link active">Estrutura Curricular <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
+                  <!-- DROPDOWN -->
+                  <div class="dropdown-content" style="visibility:hidden">
+                    <a href="#">Área de concentração e linhas de pesquisa</a>
+                    <a href="#">Disciplinas obrigatórias</a>
+                    <a href="#">Disciplinas optativas</a>
+                    <a href="#">Seminários e atividades obrigatórias</a>
+                    </div>
                   </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Notícias</a>
+                    <a class="nav-link" href="#">Notícias</a>
                   </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Fale conosco</a>
+                    <a class="nav-link" href="#">Fale conosco</a>
                   </li>
               </ul>
               <!-- Barra de pesquisa -->
@@ -292,6 +299,67 @@
             });
         });
         // FIM DO CONTROLE DO NAVBAR
+        
+        // ADICIONANDO CLICKS PARA OS MENUS QUE MOSTRAM SEUS DROPDOWN
+        document.getElementsByClassName('nav-link')[0].addEventListener('click',()=>{subMenuControl(0)});
+        document.getElementsByClassName('nav-link')[2].addEventListener('click',()=>{subMenuControl(1)});
+
+        // VERIFICANDO SE OCORRE UM CLICK FORA DOS SUBMENUS PARA FECHÁ-LOS
+        // let pointer = '';
+        window.addEventListener('click', function(e){   
+          const pointer = e.target;
+          if (!document.getElementsByClassName('dropdown')[0].contains(pointer)){
+            closeSubMenu(0);
+          }
+          if (!document.getElementsByClassName('dropdown')[1].contains(pointer)){
+            closeSubMenu(1);
+          }
+        });
+        // CONTROLE DOS SUBMENUS DO NAVBAR
+        const subMenuControl = (i)=>{
+          const content = document.getElementsByClassName('dropdown-content');
+          if(content[i].style.visibility == 'hidden'){
+            openSubMenu(i);
+          } else {
+            closeSubMenu(i);
+          }
+        }
+        const openSubMenu = (i)=>{
+          const content = document.getElementsByClassName('dropdown-content');
+          const documentWidth = document.body.clientWidth;
+          //console.log(content[0].children[0]);
+          if( documentWidth > 800){ // LARGURA DA TELA MAIOR
+            content[i].style.display = 'block';
+            content[i].style.borderWidth = '4px';
+            content[i].style.visibility = 'visible';
+            content[i].style.opacity = '1';
+            content[i].style.width = i==0 ? '200px' : '290px';
+            document.getElementsByClassName('fa-angle-down')[i].style.transform = 'rotate(-180deg)';
+          } else {                  // LARGURA DA TELA MENOR
+            content[i].style.display = 'block';
+            content[i].style.borderWidth = '4px';
+            content[i].style.visibility = 'visible';
+            content[i].style.height = '145px';
+            document.getElementsByClassName('fa-angle-down')[i].style.transform = 'rotate(-180deg)';
+          }
+        }
+        const closeSubMenu = (i)=>{
+          const content = document.getElementsByClassName('dropdown-content');
+          const documentWidth = document.body.clientWidth;
+            if(documentWidth > 800){  // LARGURA DA TELA MAIOR
+              content[i].style.borderWidth = '0px';
+              content[i].style.visibility = 'hidden';
+              content[i].style.opacity = '0';
+              document.getElementsByClassName('fa-angle-down')[i].style.transform = 'rotate(0deg)';
+            } else {                  // LARGURA DA TELA MENOR
+              content[i].style.borderWidth = '0px';
+              content[i].style.visibility = 'hidden';
+              content[i].style.height = '0px';
+              document.getElementsByClassName('fa-angle-down')[i].style.transform = 'rotate(0deg)';
+            }
+          
+        }
+
     </script>
 </body>
 </html>
