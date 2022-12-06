@@ -2,7 +2,8 @@
     text-align: center;
     width: 100%;
     background-color: rgb(220, 219, 248);
-    padding: 0.5rem;
+    border: 3px solid rgb(220, 219, 248);
+    padding: 0.3rem;
     margin: 1rem 0;
 }
 .title-emphasis h1{
@@ -19,6 +20,10 @@
 }
 .title-emphasis.side h1{
     font-size: 0.9rem;
+}
+.title-emphasis.subtitle{
+    background-color: white;
+    border: 3px solid rgb(220, 219, 248);
 }
 .line-emphasis{
     width: 100%;
@@ -82,7 +87,7 @@ article{
     margin: 0 auto;
     padding: 2rem 3rem;
     text-align: justify;
-    line-height: 1.7rem;
+    line-height: 1.5rem;
 }
 
 .info{
@@ -157,6 +162,13 @@ article{
         background-color: white;
         border-radius: 10px;
     }
+}
+
+.texto-corpo p{
+    margin: 0;
+}
+.texto-corpo a{
+    text-decoration: none;
 }
 
 .nothing-here{
