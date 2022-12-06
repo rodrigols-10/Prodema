@@ -9,6 +9,7 @@ form.contact-us div{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin: 0.3rem 0;
 }
 
 .line{
@@ -17,4 +18,5 @@ form.contact-us div{
 
 .submit{
     margin: 3rem auto 0 auto;
+    width: 100px;
 }
