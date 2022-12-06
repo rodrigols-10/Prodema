@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Alexandria&display=swap');
+
 body{
     font-size: 0.9rem;
     background-color: rgb(244, 248, 248);
+    /* flex manipulation */
+}
+
+main{ /*Quando não há nada no main, ele dá esse espaço que empurra o footer para o final*/
+    min-height: 120px;
+    margin: 30px 0;
 }
 
 h1{
@@ -20,7 +28,10 @@ figure {
 }
 
 /* ----------HEADER---------- */
-header{
+header.main,header.page{
+    font-family: 'Alexandria', sans-serif;
+}
+header.main{
     display: flex;
     background-image: url("../assets/banner.png");
     background-color: #cccccc;
@@ -30,15 +41,34 @@ header{
     align-items: center;
     font-size: 0.83rem;
 }
-@media (min-width: 1366px) {
+header.page{
+    display: flex;
+    background-image: url("../assets/banner.png");
+    background-color: #cccccc;
+    min-height: 150px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.83rem;
+}
+
+@media (min-width: 1200px) {
     .container-fluid{
-        max-width: 1366px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .nav-logo.page{
+        width: 1200px;
         margin: 0 auto;
     }
 }
-@media (max-width:1366px) and ( min-width: 800px) {
+@media (max-width:1200px) and ( min-width: 800px) {
     .container-fluid{
         margin-left: 3%;
+    }
+    .nav-logo.page{
+        width: auto;
+        margin: 3%;
     }
 }
 
@@ -52,7 +82,7 @@ nav{
     background-color: transparent; /*rgba(0,136,169,0.8);/*rgba(15,143,179,0.8);rgba(79,33,13,0.8); */
 }
 
-.nav-logo{
+.nav-logo.main{
     text-align: center;
     color: white;
     /* font-family: Arial, Helvetica, sans-serif; */
@@ -60,13 +90,25 @@ nav{
     text-shadow: 2px 2px 3px black;
     margin-bottom: 3rem;
 }
+.nav-logo.page{
+    align-self: flex-start;
+    text-align: left;
+    color: white;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-size: 0.8rem;
+    text-shadow: 2px 2px 3px black;
+    padding-left: 13px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
 #logo{
     width: auto;
     height: 55px;
 }
 
 .nav-link{
-    text-shadow: 2px 2px 3px black;
+    /* text-shadow: 2px 2px 3px black; */
     padding: 10px 0;
     color: white;
     background-color: transparent;
@@ -79,6 +121,12 @@ nav{
     background-color: rgba(0, 93, 169, 0.6);
     color: white;
     /* border-radius: 10px; */
+}
+@media (max-width: 768px) {
+    button.nav-link{
+        width: 100%;
+        text-align: left;
+    }
 }
 
 .form-control{
@@ -96,6 +144,7 @@ nav{
     width: 90%;
     text-align: right;
     margin-top: 0.3rem;
+    user-select: none;
 }
 .options ul{
     list-style: none;
@@ -111,6 +160,13 @@ nav{
 .options a{
     color: white;
     text-decoration:none;
+    margin-left: 5px;
+}
+@media (min-width: 1200px) {
+    .options{
+        width: 1200px;
+        margin: 0 auto;
+    }
 }
 /* ------DROPDOWN MENU------- */
 @media (min-width: 800px){
@@ -275,4 +331,10 @@ footer p{
         padding: 2rem 0;
     }
 
+}
+@media (min-width: 1200px) {
+    .rodape{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 }
