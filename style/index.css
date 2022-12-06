@@ -2,7 +2,6 @@
     background-color: rgb(220, 219, 248);
     padding-top: 1rem;
     padding-bottom: 4rem;
-    justify-self: start;
 }
 .notification-content{
     max-width: 1020px;

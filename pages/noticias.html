@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prodema - Apresentação</title>
+    <title>Prodema - Notícias</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/main.css">
@@ -17,7 +17,7 @@
         <div class="options">
           <ul>
             <li>
-              <a href="#" title="Acessar o sistema"><i alt="Acessar o sistema" class="fa-solid fa-arrow-right-to-bracket"></i> Acesso</a>
+              <a href="login.html" title="Acessar o sistema"><i alt="Acessar o sistema" class="fa-solid fa-arrow-right-to-bracket"></i> Acesso</a>
             </li>
             <li>
               <a href="#"><i alt="Ver mapa do site" title="Ver mapa do site" class="fa-regular fa-rectangle-list"></i></a>
@@ -28,22 +28,21 @@
             </li>
             <li style="color:white">|</li>
             <li>
-              <a href="#"><img src="../assets/portugues-icon.png" alt="idioma da página em português"></a> |
-              <a href="#"><img src="../assets/english-icon.png" alt="language of the page in english"></a> |
-              <a href="#"><img src="../assets/espanol-icon.png" alt="idioma del sitio en español"> </a>
+              <a href="#"><img src="../../assets/portugues-icon.png" alt="idioma da página em português"></a> |
+              <a href="#"><img src="../../assets/english-icon.png" alt="language of the page in english"></a> |
+              <a href="#"><img src="../../assets/espanol-icon.png" alt="idioma del sitio en español"> </a>
             </li>
           </ul>
         </div>
         <!-- IMAGEM - LOGO DA PRODEMA -->
         <a class="nav-logo page" href="../index.html">
-          <img id="logo" src="../assets/logo2.png" alt="logotipo da Prodema">
-          
+          <img id="logo" src="../../assets/logo2.png" alt="logotipo da Prodema">
         </a>
             <!-- Navbar sticky -->
             <nav id="navbar_top" class="navbar navbar-expand-md navbar-dark">
             <div class="container-fluid">
                 <!-- LOGO NA BARRA -->
-                <!-- <span class="navbar-brand mx-auto"><img class="logo" src="assets/logo-white.svg" alt="" width="40" height="40"></span> -->
+                <!-- <span class="navbar-brand mx-auto"><img class="logo" src="../assets/logo-white.svg" alt="" width="40" height="40"></span> -->
                 <!-- BOTAO DE MENU -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -52,33 +51,33 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item dropdown">
-                    <button class="nav-link active" aria-current="page" aria-expanded="true">Sobre o curso <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
+                    <button class="nav-link" aria-current="page" aria-expanded="true">Sobre o curso <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
                     <!-- DROPDOWN -->
                     <div class="dropdown-content" style="visibility:hidden">
-                        <a href="#">Apresentação</a>
-                        <a href="#">Corpo Docente</a>
-                        <a href="#">Processo Seletivo</a>
-                        <a href="#">Documentos Importantes</a>
+                        <a href="apresentacao.html">Apresentação</a>
+                        <a href="corpo-docente.html">Corpo Docente</a>
+                        <a href="processo-seletivo.html">Processo Seletivo</a>
+                        <a href="documentos-importantes.html">Documentos Importantes</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="#">Estrutura de rede</a>
+                    <a class="nav-link" href="estrutura-de-rede.html">Estrutura de rede</a>
                     </li>
                     <li class="nav-item dropdown">
-                    <button class="nav-link active">Estrutura Curricular <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
+                    <button class="nav-link">Estrutura Curricular <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
                     <!-- DROPDOWN -->
                     <div class="dropdown-content" style="visibility:hidden">
-                        <a href="#">Área de concentração e linhas de pesquisa</a>
-                        <a href="#">Disciplinas obrigatórias</a>
-                        <a href="#">Disciplinas optativas</a>
-                        <a href="#">Seminários e atividades obrigatórias</a>
+                        <a href="area-de-concentracao.html">Área de concentração e linhas de pesquisa</a>
+                        <a href="disciplinas-obrigatorias.html">Disciplinas obrigatórias</a>
+                        <a href="disciplinas-optativas.html">Disciplinas optativas</a>
+                        <a href="seminarios-e-atividades.html">Seminários e atividades obrigatórias</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Notícias</a>
+                        <a class="nav-link active" href="noticias.html">Notícias</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Fale conosco</a>
+                        <a class="nav-link" href="fale-conosco.html">Fale conosco</a>
                     </li>
                 </ul>
                 <!-- Barra de pesquisa -->
@@ -93,8 +92,52 @@
             </nav>
     </header>
     <main>
-        <!-- content -->
-        
+      <section class="info">
+        <article class="info-col1">
+          <div class="title-emphasis">
+            <h1>NOTÍCIAS</h1>
+          </div>
+          <div id="noticias">
+            <!-- ITENS DE NOTICIAS -->
+            <a class="info-item" href="noticia-page.html">
+              <figure class="info-img" title="imagem" alt="imagem">
+                <img src="../assets/noticia.png" style="width:100px;height: 100px;">
+              </figure>
+              <div class="info-title">
+                <h2>Notícia histórica: abertura do Mercado Livre de Energia para todas as empresas da alta tensão do Grupo A é uma realidade</h2>
+                <p><i class="fa-regular fa-calendar"></i> 18.nov.2022</p>
+              </div>
+            </a>
+            <a class="info-item" href="noticia-page.html">
+              <figure class="info-img" title="imagem" alt="imagem">
+                <img src="../assets/noticia.png" style="width:100px;height: 100px;">
+              </figure>
+              <div class="info-title">
+                <h2>Notícia histórica: abertura do Mercado Livre de Energia para todas as empresas da alta tensão do Grupo A é uma realidade</h2>
+                <p><i class="fa-regular fa-calendar"></i> 18.nov.2022</p>
+              </div>
+            </a>
+            <a class="info-item" href="noticia-page.html">
+              <figure class="info-img" title="imagem" alt="imagem">
+                <img src="../assets/noticia.png" style="width:100px;height: 100px;">
+              </figure>
+              <div class="info-title">
+                <h2>Notícia histórica: abertura do Mercado Livre de Energia para todas as empresas da alta tensão do Grupo A é uma realidade</h2>
+                <p><i class="fa-regular fa-calendar"></i> 18.nov.2022</p>
+              </div>
+            </a>
+          </div>
+        </article>
+        <aside class="info-col2">
+          <div class="title-emphasis side">
+            <h1>Documentos Importantes</h1>
+          </div>
+          <p><i class="fa-solid fa-file"></i> Normas e Resoluções</p>
+          <p><i class="fa-solid fa-file"></i> Oferta de Disciplinas</p>
+          <p><i class="fa-solid fa-file"></i> Portarias e Ofícios</p>
+          <p><i class="fa-solid fa-file"></i> Processo seletivo</p>
+        </aside>
+        </section>
     </main>
     <footer>
         <div class="rodape">
@@ -122,9 +165,9 @@
           <div class="social">
             <h1><i class="fa-regular fa-thumbs-up"></i> Mídias Sociais</h1>
             <div>
-              <a href="#"><img src="../assets/icon_facebook.png" alt="ícone do Facebook"></a>
-              <a href="#"><img src="../assets/icon_dropbox.png" alt="ícone do Dropbox"></a>
-              <a href="#"><img src="../assets/icon_rss.png" alt="ícone do RSS"></a>
+              <a href="https://www.facebook.com/prodemaufrn"><img src="../assets/icon_facebook.png" alt="ícone do Facebook"></a>
+              <a href="https://www.dropbox.com/sh/73fezju8dwsvja8/AADerxFRSEuf0PJIg115edK1a?dl=0"><img src="../assets/icon_dropbox.png" alt="ícone do Dropbox"></a>
+              <a href="https://sistemas.ufrn.br/gerenciadorportais/public/prodema/noticia/rss/"><img src="../assets/icon_rss.png" alt="ícone do RSS"></a>
             </div>
           </div>
           <div class="direitos">

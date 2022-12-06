@@ -7,8 +7,8 @@ body{
 }
 
 main{ /*Quando não há nada no main, ele dá esse espaço que empurra o footer para o final*/
-    min-height: 120px;
-    margin: 30px 0;
+    min-height: 260px;
+    margin: 0;
 }
 
 h1{
@@ -262,7 +262,9 @@ nav{
         color:rgb(1, 76, 138);
       }    
 }
-
+.active{
+    background-color: rgba(0, 93, 169, 0.6);
+}
 
 /* ----------FOOTER---------- */
 
