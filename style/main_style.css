@@ -22,7 +22,7 @@ figure {
 /* ----------HEADER---------- */
 header{
     display: flex;
-    background-image: url("../Assets/banner.png");
+    background-image: url("../assets/banner.png");
     background-color: #cccccc;
     min-height: 250px;
     flex-direction: column;
