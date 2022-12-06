@@ -1,0 +1,20 @@
+form.contact-us{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+form.contact-us div{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.line{
+    min-width: 373px;
+}
+
+.submit{
+    margin: 3rem auto 0 auto;
+}

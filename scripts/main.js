@@ -55,7 +55,7 @@ const openSubMenu = (i)=>{
     content[i].style.borderWidth = '4px';
     content[i].style.visibility = 'visible';
     content[i].style.opacity = '1';
-    content[i].style.width = i==0 ? '200px' : '290px';
+    content[i].style.width = i!=1 ? '200px' : '290px';
     document.getElementsByClassName('fa-angle-down')[i].style.transform = 'rotate(-180deg)';
   } else {                  // LARGURA DA TELA MENOR
     content[i].style.display = 'block';
