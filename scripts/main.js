@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function(){
 // ADICIONANDO CLICKS PARA OS MENUS QUE MOSTRAM SEUS DROPDOWN
 document.getElementsByClassName('nav-link')[0].addEventListener('click',()=>{subMenuControl(0)});
 document.getElementsByClassName('nav-link')[2].addEventListener('click',()=>{subMenuControl(1)});
+document.getElementsByClassName('nav-link')[3].addEventListener('click',()=>{subMenuControl(2)});
 
 // VERIFICANDO SE OCORRE UM CLICK FORA DOS SUBMENUS PARA FECHÁ-LOS
 // let pointer = '';
@@ -31,6 +32,9 @@ window.addEventListener('click', function(e){
   }
   if (!document.getElementsByClassName('dropdown')[1].contains(pointer)){
     closeSubMenu(1);
+  }
+  if (!document.getElementsByClassName('dropdown')[2].contains(pointer)){
+    closeSubMenu(2);
   }
 });
 // CONTROLE DOS SUBMENUS DO NAVBAR
@@ -57,7 +61,7 @@ const openSubMenu = (i)=>{
     content[i].style.display = 'block';
     content[i].style.borderWidth = '4px';
     content[i].style.visibility = 'visible';
-    content[i].style.height = '145px';
+    content[i].style.height = (i!=2) ? '145px' : '75px';
     document.getElementsByClassName('fa-angle-down')[i].style.transform = 'rotate(-180deg)';
   }
 }
