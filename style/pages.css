@@ -20,7 +20,12 @@
 .title-emphasis.side h1{
     font-size: 0.9rem;
 }
-
+.line-emphasis{
+    width: 100%;
+    background-color: rgb(220, 219, 248);
+    height: 10px;
+    margin: 2rem 0 1rem 0;
+}
 .title-info{
     text-align: center;
     width: 100%;
