@@ -24,6 +24,7 @@
 .title-emphasis.subtitle{
     background-color: white;
     border: 3px solid rgb(220, 219, 248);
+    font-weight: bold;
 }
 .line-emphasis{
     width: 100%;
@@ -175,4 +176,8 @@ article{
     width: 100%;
     margin: 1rem auto;
     text-align: center;
+}
+.end-note{
+    margin: 2rem 0;
+    font-style: italic;
 }

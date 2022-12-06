@@ -55,7 +55,7 @@ const openSubMenu = (i)=>{
     content[i].style.borderWidth = '4px';
     content[i].style.visibility = 'visible';
     content[i].style.opacity = '1';
-    content[i].style.width = i!=1 ? '200px' : '290px';
+    content[i].style.width = i!=1 ? '230px' : '330px';
     document.getElementsByClassName('fa-angle-down')[i].style.transform = 'rotate(-180deg)';
   } else {                  // LARGURA DA TELA MENOR
     content[i].style.display = 'block';
@@ -80,4 +80,64 @@ const closeSubMenu = (i)=>{
       document.getElementsByClassName('fa-angle-down')[i].style.transform = 'rotate(0deg)';
     }
   
+}
+
+let articleP = 0.8;
+let articleH1 = 1.3;
+let articleH2 = 0.9;
+
+const increaseFontSize = ()=>{
+  const tagH1 = document.getElementsByTagName('h1');
+  const tagH2 = document.getElementsByTagName('h2');
+  const tagP = document.getElementsByTagName('p');
+  if (articleH1 <= 2){
+    articleH1 += 0.1;
+    for (let i=0; i<tagH1.length; i++) {
+      tagH1[i].style.fontSize = articleH1+'rem';
+      console.log(tagH1[i].style.fontSize);
+    }
+  }
+  
+  if (articleH2 <= 1.6){
+    articleH2 += 0.1;
+    for (let i=0; i<tagH2.length; i++) {
+      tagH2[i].style.fontSize = articleH2+'rem';
+      console.log(tagH2[i].style.fontSize);
+    }
+  }
+  if (articleP <= 1.5){
+    articleP += 0.1;
+    for (let i=0; i<tagP.length; i++) {
+      tagP[i].style.fontSize = articleP+'rem';
+      console.log(tagP[i].style.fontSize);
+    }
+  }
+}
+
+const decreaseFontSize = ()=>{
+  const tagH1 = document.getElementsByTagName('h1');
+  const tagH2 = document.getElementsByTagName('h2');
+  const tagP = document.getElementsByTagName('p');
+  if (articleH1 > 0.9){
+    articleH1 -= 0.1;
+    for (let i=0; i<tagH1.length; i++) {
+      tagH1[i].style.fontSize = articleH1+'rem';
+      console.log(tagH1[i].style.fontSize);
+    }
+  }
+  
+  if (articleH2 > 0.5){
+    articleH2 -= 0.1;
+    for (let i=0; i<tagH2.length; i++) {
+      tagH2[i].style.fontSize = articleH2+'rem';
+      console.log(tagH2[i].style.fontSize);
+    }
+  }
+  if (articleP > 0.4){
+    articleP -= 0.1;
+    for (let i=0; i<tagP.length; i++) {
+      tagP[i].style.fontSize = articleP+'rem';
+      console.log(tagP[i].style.fontSize);
+    }
+  }
 }
