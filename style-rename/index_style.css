@@ -1,0 +1,115 @@
+.notification{
+    background-color: rgb(220, 219, 248);
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+}
+
+.btn_info{
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn_info .btn{
+    border-radius: 1rem;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+    gap:10px;
+    max-width: 1000px;
+    margin: 1rem auto;
+}
+.info-col1{
+    position: relative;
+    padding: 1rem 1rem 4rem 1rem;
+    width: 620px;
+    background-color: white;
+    border-radius: 10px;
+}
+.info-col2{
+    position: relative;
+    width: 370px;
+    padding: 1rem 1rem 4rem 1rem;
+    background-color: white;
+    border-radius: 10px;
+}
+.info h1{
+    margin-bottom: 2rem;
+}
+@media (max-width: 1020px){
+    .info {
+        justify-content:flex-start;
+        row-gap: 10px;
+        column-gap:0;
+        margin: 1rem 3%;
+    }
+    .info-col1{
+        position: relative;
+        padding: 1rem 1rem 4rem 1rem;
+        width: 100%;
+        background-color: white;
+        border-radius: 10px;
+    }
+    .info-col2{
+        position: relative;
+        width: 100%;
+        padding: 1rem 1rem 4rem 1rem;
+        background-color: white;
+        border-radius: 10px;
+    }
+}
+
+#vertical-line{
+    border-left: 1px solid #777;
+    height: auto;
+    width: 1px;
+}
+.ver-mais{
+    position: absolute;
+    bottom:0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.info-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.6rem;
+}
+
+.info-item figure img{
+    border-radius: 5px;
+}
+.info-title p{
+    margin-bottom: 0;
+}
+
+.parceiros{
+    padding: 1rem 0;
+    background-color: rgb(220, 219, 248);
+}
+.parceiros h1{
+    margin-left: 8%;
+}
+.lista-brasoes{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 1rem 3%;
+}
+
+.brasao{
+    min-width: 69px;
+    color: black;
+    text-decoration:none;
+    text-align: center;
+}
+.brasao img{
+    height: 80px;
+}
