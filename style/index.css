@@ -79,6 +79,9 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+.disabled{
+    display: none;
+}
 .info-item{
     display: flex;
     flex-direction: row;
