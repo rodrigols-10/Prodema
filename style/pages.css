@@ -206,3 +206,11 @@ article{
     margin: 2rem 0;
     font-style: italic;
 }
+
+.doc-list{
+    list-style: none;
+}
+.doc-list li a{
+    text-decoration: none;
+    color: black;
+}

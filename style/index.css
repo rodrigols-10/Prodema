@@ -1,11 +1,12 @@
 .notification{
-    background-color: rgb(220, 219, 248);
+    background-color: rgb(230, 240, 253);/*rgb(219, 232, 248);*/
     padding-top: 1rem;
     padding-bottom: 4rem;
 }
 .notification-content{
     max-width: 1020px;
     margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .btn_info{
