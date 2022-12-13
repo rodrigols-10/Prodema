@@ -1,0 +1,216 @@
+.title-emphasis{
+    text-align: center;
+    width: 100%;
+    background-color: rgb(220, 219, 248);
+    border: 3px solid rgb(220, 219, 248);
+    padding: 0.3rem;
+    margin: 1rem 0;
+}
+.title-emphasis h1{
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+.title-emphasis p{
+    text-align: left;
+    margin-top: 2rem;
+}
+.title-emphasis.side{
+    text-align: center;
+}
+.title-emphasis.side h1{
+    font-size: 0.9rem;
+}
+.title-emphasis.subtitle{
+    background-color: white;
+    border: 3px solid rgb(220, 219, 248);
+    font-weight: bold;
+}
+.line-emphasis{
+    width: 100%;
+    background-color: rgb(0, 136, 169);
+    height: 10px;
+    margin: 2rem 0 1rem 0;
+}
+.title-info{
+    text-align: center;
+    width: 100%;
+    background-color: rgb(241, 240, 252);
+    padding: 1rem 1rem 0.5rem 1rem;
+    margin: 1rem 0 0 0;
+}
+.title-info h1{
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+.title-info > p{
+    text-align: left;
+    margin: 2rem 0 0 0;
+}
+.title-info .cronograma{
+    text-align: left;
+    border: 1px solid rgb(39, 68, 94);
+    color: rgb(39, 68, 94);
+    padding: 0.5rem;
+    width: 50%;
+    margin: 2rem 50% 0 0;
+}
+.title-info .cronograma p{
+    padding: 0;
+    margin: 0;
+}
+@media (max-width: 900px) {
+    .title-info .cronograma{
+        width: 100%;
+        margin: 2rem 0 0 0;
+    }
+}
+
+.info-page-img{
+    width: 100%;
+    height: 300px;
+    background-color: rgb(244, 248, 248);
+    margin-bottom: 2rem;   
+}
+.info-page-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-page-other-img{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+
+    width: 100%;
+    /* height: 300px; */
+    background-color: rgb(244, 248, 248);
+    padding: 2%;
+    margin-bottom: 2rem;
+    margin: 2rem auto 0;
+}
+.info-page-other-img img{
+    min-width: 330px;
+    max-height: 500px;
+    /* object-fit: cover; */
+}
+@media (max-width: 400px){
+    .info-page-img{
+        height: 200px;
+    }
+}
+section{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+article{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 3rem;
+    text-align: justify;
+    line-height: 1.5rem;
+}
+
+.info{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    /* justify-content: space-around; */
+    gap:10px;
+    max-width: 1200px;
+    margin: 1rem auto;
+}
+.info-col1{
+    position: relative;
+    padding: 1rem 2rem 4rem 2rem;
+    width: 800px;
+    background-color: white;
+    border-radius: 10px;
+}
+.info-col2{
+    position: relative;
+    width: 320px;
+    padding: 1rem 1rem 4rem 1rem;
+    background-color: white;
+    border-radius: 10px;
+}
+.ver-mais{
+    position: absolute;
+    right:1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.info-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.6rem;
+    text-decoration: none;
+    color: black;
+}
+.info-item:hover{
+    color: black;
+    background-color: rgb(228, 236, 240);
+}
+
+.info-item figure img{
+    border-radius: 5px;
+}
+.info-title p{
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px){
+    .info {
+        justify-content:flex-start;
+        flex-wrap: wrap;
+        row-gap: 10px;
+        column-gap:0;
+        margin: 1rem 3%;
+    }
+    .info-col1{
+        position: relative;
+        padding: 1rem 1rem 4rem 1rem;
+        width: 100%;
+        background-color: white;
+        border-radius: 10px;
+    }
+    .info-col2{
+        position: relative;
+        width: 100%;
+        padding: 1rem 1rem 4rem 1rem;
+        background-color: white;
+        border-radius: 10px;
+    }
+}
+
+.texto-corpo p{
+    margin: 0;
+}
+.texto-corpo a{
+    text-decoration: none;
+}
+
+.nothing-here{
+    width: 100%;
+    margin: 1rem auto;
+    text-align: center;
+}
+.end-note{
+    margin: 2rem 0;
+    font-style: italic;
+}
+
+.doc-list{
+    list-style: none;
+}
+.doc-list li a{
+    text-decoration: none;
+    color: black;
+}
