@@ -77,7 +77,7 @@
                       <button class="nav-link">Comunicação <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
                       <!-- DROPDOWN -->
                       <div class="dropdown-content" style="visibility:hidden">
-                          <a href="noticias.html">Notícias</a>
+                          <a href="noticias.php">Notícias</a>
                           <a href="eventos.html">Eventos</a>
                           </div>
                     </li>
@@ -104,42 +104,37 @@
           </div>
           <div id="noticias">
             <!-- ITENS DE NOTICIAS -->
-            <a class="info-item" href="noticia-page1.html">
-              <figure class="info-img" title="imagem" alt="imagem">
-                <img src="../assets/noticia1.jpg" style="width:100px;height: 100px;object-fit: cover">
-              </figure>
-              <div class="info-title">
-                <h2>O Colegiado do Curso de Doutorado em Desenvolvimento e Meio Ambiente, Associação Plena em Rede, convidam as Instituições de Ensino Superior legalmente instituídas a apresentarem propostas de adesão.</h2>
-                <p><i class="fa-regular fa-calendar"></i> 06.dez.2022</p>
-              </div>
-            </a>
-            <a class="info-item" href="noticia-page2.html">
-              <figure class="info-img" title="imagem" alt="imagem">
-                <img src="../assets/noticia2.jpg" style="width:100px;height: 100px;object-fit: cover">
-              </figure>
-              <div class="info-title">
-                <h2>Encerramento da disciplina "Caracterização Tecnológica da Madeira e Derivados"</h2>
-                <p><i class="fa-regular fa-calendar"></i> 06.dez.2022</p>
-              </div>
-            </a>
-            <a class="info-item" href="noticia-page3.html">
-              <figure class="info-img" title="imagem" alt="imagem">
-                <img src="../assets/noticia3.jpg" style="width:100px;height: 100px;object-fit: cover">
-              </figure>
-              <div class="info-title">
-                <h2>Resultado da avaliação dos Pré-projetos</h2>
-                <p><i class="fa-regular fa-calendar"></i> 06.dez.2022</p>
-              </div>
-            </a>
-            <a class="info-item" href="noticia-page4.html">
-              <figure class="info-img" title="imagem" alt="imagem">
-                <img src="../assets/noticia4.jpg" style="width:100px;height: 100px;object-fit: cover">
-              </figure>
-              <div class="info-title">
-                <h2>Índice de Doenças provenientes da Radioatividade é tema de ação desenvolvida no Seridó pelo Prodema/UFRN</h2>
-                <p><i class="fa-regular fa-calendar"></i> 06.dez.2022</p>
-              </div>
-            </a>
+<?php
+    include('../manager/connection.php');
+
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];  
+        $sql_code = "DELETE FROM `noticias` WHERE `noticias`.`id` = $id";  
+        $sql_query = $mysqli->query($sql_code) or die("<p>Falha na operação</p>");  
+        if ($sql_query->num_rows()) {  
+
+        }else{  
+             echo "Error: ".mysqli_error($mysqli);  
+        }  
+    }  
+
+    $sql_code = "SELECT * FROM noticias";
+    $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
+      
+    while($noticias = $sql_query->fetch_assoc()){
+        ?>
+          <a class="info-item" href="noticia-page.php?id=<?php echo $noticias['id']?>">
+            <figure class="info-img" title="imagem" alt="imagem">
+            <img src="../uploads/<?php echo $noticias['banner'] ?>" style="width:100px;height: 100px;object-fit: cover">
+            </figure>
+            <div class="info-title">
+            <h2><?php echo $noticias['titulo'] ?></h2>
+            <p><i class="fa-regular fa-calendar"></i> <?php echo date_format(new DateTime($noticias['data']),'d.m.Y') ?></p>
+            </div>
+          </a>
+        <?php
+    }
+?>
           </div>
         </article>
         <aside class="info-col2">

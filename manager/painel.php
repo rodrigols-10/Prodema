@@ -36,10 +36,9 @@ include('protect-page.php')
           </div>
           <div id="noticias">
             <!-- ITENS DE NOTICIAS -->
-            <a class="info-item" href="#">
+            <a class="info-item" href="noticias-control.php">
               <figure class="info-img" title="imagem" alt="imagem">
                 <img src="edit.png" style="width:100px;height: 100px;object-fit: cover">
-                <div></div>
               </figure>
               <div class="info-title">
                 <h2>GERENCIAR NOTÍCIAS</h2>
@@ -49,7 +48,6 @@ include('protect-page.php')
             <a class="info-item" href="#">
               <figure class="info-img" title="imagem" alt="imagem">
                 <img src="edit.png" style="width:100px;height: 100px;object-fit: cover">
-                <div></div>
               </figure>
               <div class="info-title">
                 <h2>GERENCIAR EVENTOS</h2>
@@ -59,7 +57,6 @@ include('protect-page.php')
             <a class="info-item" href="#">
               <figure class="info-img" title="imagem" alt="imagem">
                 <img src="edit.png" style="width:100px;height: 100px;object-fit: cover">
-                <div></div>
               </figure>
               <div class="info-title">
                 <h2>GERENCIAR PROCESSOS SELETIVOS</h2>
@@ -69,7 +66,6 @@ include('protect-page.php')
             <a class="info-item" href="#">
               <figure class="info-img" title="imagem" alt="imagem">
                 <img src="edit.png" style="width:100px;height: 100px;object-fit: cover">
-                <div></div>
               </figure>
               <div class="info-title">
                 <h2>GERENCIAR DOCUMENTOS</h2>

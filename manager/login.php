@@ -15,7 +15,7 @@
       <div class="options">
         <ul style="display:flex; justify-content:space-between;">
           <li style="height: 100%">
-            <a href="index.html" style="height: 100%"><i alt="voltar" title="Voltar" class="fa-solid fa-arrow-left"></i> Voltar</a>
+            <a href="../index.html" style="height: 100%"><i alt="voltar" title="Voltar" class="fa-solid fa-arrow-left"></i> Voltar</a>
           </li>
           <li style="visibility: hidden; height: 100%">
             <a href="" title="Sair do sistema"><i alt="Sair do sistema" class="fa-solid fa-arrow-right-to-bracket"></i> Sair</a>
@@ -35,14 +35,12 @@
     } else {
       $email = $mysqli->real_escape_string($_POST['email']);
       $password = $mysqli->real_escape_string($_POST['password']);
-      $sql_code = "SELECT * FROM usuarios WHERE usuario = '$email' AND senha = '$password'";
+      $sql_code = "SELECT * FROM usuarios WHERE usuario = '$email' LIMIT 1";
       $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
-
-      $qtd = $sql_query->num_rows;
-
-      if($qtd == 1){
-        $user = $sql_query->fetch_assoc();
-
+      
+      $user = $sql_query->fetch_assoc();
+      $hash = password_verify($password, $user['senha']);
+      if($hash){
         if(!isset($_SESSION)){
           session_start();
         }

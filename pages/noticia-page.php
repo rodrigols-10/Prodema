@@ -77,7 +77,7 @@
                     <button class="nav-link">Comunicação <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
                     <!-- DROPDOWN -->
                     <div class="dropdown-content" style="visibility:hidden">
-                        <a href="noticias.html">Notícias</a>
+                        <a href="noticias.php">Notícias</a>
                         <a href="eventos.html">Eventos</a>
                         </div>
                   </li>
@@ -99,20 +99,33 @@
     <main>
         <!-- content -->
         <section class="info">
+<?php
+  include('../manager/connection.php');
+
+  if (isset($_GET['id'])) {
+      $id = $_GET['id'];  
+      $sql_code = "SELECT * FROM noticias WHERE `noticias`.`id` = $id";
+      $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição");
+      if (isset($sql_query)) {
+        $noticias = $sql_query->fetch_assoc();
+?>
           <article class="info-col1">
             <div class="title-info">
-              <h1>Notícia histórica: abertura do Mercado Livre de Energia para todas as empresas da alta tensão do Grupo A é uma realidade</h1>
-              <p><i class="fa-regular fa-calendar"></i> 18.nov.2022</p>
+              <h1><?php echo $noticias['titulo'] ?></h1>
+              <p><i class="fa-regular fa-calendar"></i> <?php echo date_format(new DateTime($noticias['data']),'d.m.Y') ?></p>
             </div>
             <div class="info-page-img">
-                <img src="../assets/noticia-cover.png" alt="imagem da notícia">
+                <img src="../uploads/<?php echo $noticias['banner'] ?>" alt="imagem da notícia">
             </div>
-            <p>Milhares de empresas em todo o Brasil estão migrando para o Mercado Livre de Energia nesse momento graças à grande modernização pela qual passa o setor elétrico nacional. A mudança, que já é considerada um dos maiores movimentos desse tipo no mundo, reafirma o protagonismo setorial do Brasil quanto ao estabelecimento de uma matriz elétrica ainda mais limpa, eficiente e capaz de gerar competitividade e economia.</p>
-
-            <p>A partir do Ministério de Minas e Energia, um conjunto de órgãos, leis, consultas públicas e portarias normativas dão base e estruturam essa abertura gradual e positiva. A principal delas é a PL 414/2021 que abriu frente para a Normativa 50/2022 que determina que todos os consumidores empresariais que estão na alta tensão (Grupo A) podem migrar para o Mercado Livre já em janeiro de 2024.</p>
-
-            <p>Atualmente 10,7 mil empresas já estão no Mercado Livre de Energia. Estima-se que outras 70 mil possuem os requisitos mínimos de acesso para migração mas ainda não o fizeram e outras 106 mil empresas poderão acessar o Mercado Livre de Energia nos próximos meses conforme os novos requisitos.</p>
+            <?php echo $noticias['conteudo'] ?>
           </article>
+<?php
+      }else{  
+           echo "Error: ".mysqli_error($mysqli);  
+      }
+  }
+?>
+          
           <aside class="info-col2">
             <div class="title-emphasis side">
               <h1>DOCUMENTOS IMPORTANTES</h1>
