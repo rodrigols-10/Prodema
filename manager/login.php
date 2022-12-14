@@ -12,6 +12,16 @@
 </head>
 <body>
     <header style="position: absolute; top:0; width: 100%">
+      <div style="background-color:#005da9" class="options">
+        <ul style="display:flex; justify-content:space-between;">
+          <li style="visibility: hidden; height: 100%">
+            <a href="painel.php" style="height: 100%"><i alt="voltar" title="Voltar" class="fa-solid fa-arrow-left"></i> Voltar</a>
+          </li>
+          <li>
+            <a href="logout.php" title="Sair do sistema"><i alt="Sair do sistema" class="fa-solid fa-arrow-right-to-bracket"></i> Sair</a>
+          </li>
+        </ul>
+      </div>
       <div style="background-color: red;">
         
 <?php

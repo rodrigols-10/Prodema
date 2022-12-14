@@ -1,3 +1,7 @@
+<?php
+include('protect-page.php')
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +23,7 @@
           <a href="painel.php" style="height: 100%"><i alt="voltar" title="Voltar" class="fa-solid fa-arrow-left"></i> Voltar</a>
         </li>
         <li>
-          <a href="login.php" title="Acessar o sistema"><i alt="Acessar o sistema" class="fa-solid fa-arrow-right-to-bracket"></i> Sair</a>
+          <a href="logout.php" title="Sair do sistema"><i alt="Sair do sistema" class="fa-solid fa-arrow-right-to-bracket"></i> Sair</a>
         </li>
       </ul>
     </div>
@@ -35,6 +39,7 @@
             <a class="info-item" href="#">
               <figure class="info-img" title="imagem" alt="imagem">
                 <img src="edit.png" style="width:100px;height: 100px;object-fit: cover">
+                <div></div>
               </figure>
               <div class="info-title">
                 <h2>GERENCIAR NOTÍCIAS</h2>
@@ -44,6 +49,7 @@
             <a class="info-item" href="#">
               <figure class="info-img" title="imagem" alt="imagem">
                 <img src="edit.png" style="width:100px;height: 100px;object-fit: cover">
+                <div></div>
               </figure>
               <div class="info-title">
                 <h2>GERENCIAR EVENTOS</h2>
@@ -53,6 +59,7 @@
             <a class="info-item" href="#">
               <figure class="info-img" title="imagem" alt="imagem">
                 <img src="edit.png" style="width:100px;height: 100px;object-fit: cover">
+                <div></div>
               </figure>
               <div class="info-title">
                 <h2>GERENCIAR PROCESSOS SELETIVOS</h2>
@@ -62,6 +69,7 @@
             <a class="info-item" href="#">
               <figure class="info-img" title="imagem" alt="imagem">
                 <img src="edit.png" style="width:100px;height: 100px;object-fit: cover">
+                <div></div>
               </figure>
               <div class="info-title">
                 <h2>GERENCIAR DOCUMENTOS</h2>
@@ -74,6 +82,5 @@
         </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <!-- <script src="../scripts/main.js"></script> -->
 </body>
 </html>

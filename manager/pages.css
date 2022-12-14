@@ -154,13 +154,18 @@ article{
     text-decoration: none;
     color: black;
 }
+
+.info-item figure img{
+    border-radius: 5px;
+}
+
 .info-item:hover{
     color: black;
     background-color: rgb(228, 236, 240);
 }
 
-.info-item figure img{
-    border-radius: 5px;
+.info-item:hover figure img{
+    opacity: 0.2;
 }
 .info-title p{
     margin-bottom: 0;
