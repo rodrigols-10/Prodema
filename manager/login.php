@@ -11,11 +11,11 @@
     <script src="https://kit.fontawesome.com/6354a31a3b.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header style="position: absolute; top:0; width: 100%">
-      <div style="background-color:#005da9" class="options">
+    <header style="position: absolute; top:0; width: 100%; background-color:#005da9">
+      <div class="options">
         <ul style="display:flex; justify-content:space-between;">
           <li style="height: 100%">
-            <a href="painel.php" style="height: 100%"><i alt="voltar" title="Voltar" class="fa-solid fa-arrow-left"></i> Voltar</a>
+            <a href="index.html" style="height: 100%"><i alt="voltar" title="Voltar" class="fa-solid fa-arrow-left"></i> Voltar</a>
           </li>
           <li style="visibility: hidden; height: 100%">
             <a href="" title="Sair do sistema"><i alt="Sair do sistema" class="fa-solid fa-arrow-right-to-bracket"></i> Sair</a>
