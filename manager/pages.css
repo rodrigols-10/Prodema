@@ -219,3 +219,27 @@ article{
     text-decoration: none;
     color: black;
 }
+
+form.creation{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+form.creation div{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin: 0.3rem 0;
+}
+
+.line{
+    min-width: 373px;
+}
+
+.submit{
+    margin: 3rem auto 0 auto;
+    width: 100px;
+}

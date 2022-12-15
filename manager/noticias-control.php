@@ -55,7 +55,7 @@
     while($noticias = $sql_query->fetch_assoc()){
         ?>
         <div style="display:flex; flex-wrap:nowrap; justify-content: space-between;align-items:center;">
-            <div class="info-item">
+            <div class="info-item" style="background-color:white;">
                 <figure class="info-img" title="imagem" alt="imagem">
                 <img src="../uploads/<?php echo $noticias['banner'] ?>" style="width:100px;height: 100px;object-fit: cover">
                 </figure>
@@ -75,45 +75,6 @@
         </article>
         </section>
     </main>
-    <footer>
-        <div class="rodape">
-          <div class="contatos">
-            <p>
-              <i alt="Telefone" title="Telefone" class="fa-solid fa-phone"></i> 
-            <strong>Contato:</strong> (84) 99193-6219
-            </p>
-            <p>
-              <i alt="Email da Prodema" title="Email Prodema" class="fa-regular fa-envelope"></i> 
-            <strong>Email:</strong> <a href="mailto:prodemadoutorado@gmail.com">prodemadoutorado@gmail.com</a>
-            </p>
-            <div>
-              <p>
-                <i class="fa-solid fa-location-dot"></i>
-                <strong>Endereço:</strong>
-              </p>
-              <p>Centro de Biociências</p>
-              <p>Universidade Federal do Rio Grande do Norte</p>
-              <p>CEP: 59.078-970</p>
-              <p>Campus Universitário/ Lagoa Nova </p>
-              <p>Natal - RN</p>
-            </div>
-          </div>
-          <div class="social">
-            <h1><i class="fa-regular fa-thumbs-up"></i> Mídias Sociais</h1>
-            <div>
-              <a href="https://www.facebook.com/prodemaufrn"><img src="../assets/icon_facebook.png" alt="ícone do Facebook"></a>
-              <a href="https://www.dropbox.com/sh/73fezju8dwsvja8/AADerxFRSEuf0PJIg115edK1a?dl=0"><img src="../assets/icon_dropbox.png" alt="ícone do Dropbox"></a>
-              <a href="https://sistemas.ufrn.br/gerenciadorportais/public/prodema/noticia/rss/"><img src="../assets/icon_rss.png" alt="ícone do RSS"></a>
-            </div>
-          </div>
-          <div class="direitos">
-            <h1>Prodema</h1>
-            <p>
-              Todos os direitos Reservados <span>&copy</span> Copyright 2022
-            </p>
-          </div>
-        </div>
-    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <!-- <script src="../scripts/main.js"></script> -->
 </body>
