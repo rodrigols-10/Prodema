@@ -22,8 +22,7 @@
         }
       }
   }
-    
-    $userMessage = "";
+
     if(isset($_POST['titulo']) && $_POST['titulo']){
       $bannerName = 'default.png';
       if(isset($_FILES['banner'])){
@@ -36,7 +35,11 @@
       }
       $titulo = $_POST['titulo'];
       $conteudo = $_POST['conteudo'];
-  
+      $inicio = $_POST['inicio'];
+      $fim = $_POST['fim'];
+      $horario = $_POST['horario'];
+      $inscricoes = $_POST['inscricoes'];
+
       if(isset($_FILES['imagens'])){
         $image = $_FILES['imagens'];
         foreach($image['name'] as $key => $img){          
@@ -45,10 +48,10 @@
         unset($img);
       }
   
-      $sql_code = "INSERT INTO noticias (titulo, banner, conteudo) VALUES ('$titulo', '$bannerName', '$conteudo')";
+      $sql_code = "INSERT INTO eventos (titulo, banner, conteudo, inicio, fim, horario, inscricoes) VALUES ('$titulo', '$bannerName', '$conteudo', '$inicio', '$fim', '$horario', '$inscricoes')";
       $sql_query = $mysqli->query($sql_code) or die("<p>Falha na operação</p>");
       if ($sql_query) {
-          header('Location:noticias-control.php'); 
+          header('Location:eventos-control.php'); 
           exit();
       }else{  
           echo "Error: ".mysqli_error($mysqli);  
@@ -105,6 +108,22 @@
             <div>
               <label>Banner: </label>
               <input class="line" type="file" name="banner" value="">
+            </div>
+            <div>
+              <label>Início: </label>
+              <input class="line" type="date" name="inicio" value="" required>
+            </div>
+            <div>
+              <label>Fim: </label>
+              <input class="line" type="date" name="fim" value="" required>
+            </div>
+            <div>
+              <label>Horário: </label>
+              <input class="line" type="time" name="horario" value="">
+            </div>
+            <div>
+              <label>Inscrições: </label>
+              <input class="line" type="text" name="inscricoes" value="">
             </div>
             <div>
               <label>Conteúdo:</label>

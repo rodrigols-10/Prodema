@@ -35,7 +35,7 @@
           </ul>
         </div>
         <!-- IMAGEM - LOGO DA PRODEMA -->
-        <a class="nav-logo page" href="../index.html">
+        <a class="nav-logo page" href="../index.php">
           <img id="logo" src="../assets/logo2.png" alt="logotipo da Prodema">
         </a>
             <!-- Navbar sticky -->
@@ -77,8 +77,8 @@
                       <button class="nav-link">Comunicação <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
                       <!-- DROPDOWN -->
                       <div class="dropdown-content" style="visibility:hidden">
-                          <a href="noticias.php">Notícias</a>
-                          <a href="eventos.html">Eventos</a>
+                          <a href="eventos.php">Notícias</a>
+                          <a href="eventos.php">Eventos</a>
                           </div>
                     </li>
                     <li class="nav-item">
@@ -104,15 +104,26 @@
           </div>
           <div id="eventos">
             <!-- ITENS DE EVENTOS -->
-            <a class="info-item" href="evento-page1.html">
-              <figure class="info-img" title="imagem" alt="imagem">
-                <img src="../uploads/evento1.jpg" style="width:100px;height: 100px;object-fit: cover;">
-              </figure>
-              <div class="info-title">
-                <h2>IV CURSO DE INTRODUÇÃO A ESTUDOS COM PEQUENOS MAMÍFEROS.</h2>
-                <p><i class="fa-regular fa-calendar"></i> 09.dez.2022 a 12.dez.2022</p>
-              </div>
-            </a>
+<?php
+    include('../manager/connection.php');
+
+    $sql_code = "SELECT * FROM eventos";
+    $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
+      
+    while($eventos = $sql_query->fetch_assoc()){
+        ?>
+          <a class="info-item" href="evento-page.php?id=<?php echo $eventos['id']?>">
+          <figure class="info-img" title="imagem" alt="imagem">
+            <img src="../uploads/<?php echo $eventos['banner'] ?>" style="width:100px;height: 100px;object-fit: cover">
+          </figure>
+          <div class="info-title">
+            <h2><?php echo $eventos['titulo'] ?></h2>
+            <p><i class="fa-regular fa-calendar"></i> <?php echo date_format(new DateTime($eventos['inicio']),'d.m.Y') . " à " . date_format(new DateTime($eventos['fim']),'d.m.Y')?></p>
+          </div>
+          </a>
+        <?php
+    }
+?>
             
           </div>
         </article>

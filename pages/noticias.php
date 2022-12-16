@@ -35,7 +35,7 @@
           </ul>
         </div>
         <!-- IMAGEM - LOGO DA PRODEMA -->
-        <a class="nav-logo page" href="../index.html">
+        <a class="nav-logo page" href="../index.php">
           <img id="logo" src="../assets/logo2.png" alt="logotipo da Prodema">
         </a>
             <!-- Navbar sticky -->
@@ -78,7 +78,7 @@
                       <!-- DROPDOWN -->
                       <div class="dropdown-content" style="visibility:hidden">
                           <a href="noticias.php">Notícias</a>
-                          <a href="eventos.html">Eventos</a>
+                          <a href="eventos.php">Eventos</a>
                           </div>
                     </li>
                     <li class="nav-item">
@@ -105,18 +105,7 @@
           <div id="noticias">
             <!-- ITENS DE NOTICIAS -->
 <?php
-    include('../manager/connection.php');
-
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];  
-        $sql_code = "DELETE FROM `noticias` WHERE `noticias`.`id` = $id";  
-        $sql_query = $mysqli->query($sql_code) or die("<p>Falha na operação</p>");  
-        if ($sql_query->num_rows()) {  
-
-        }else{  
-             echo "Error: ".mysqli_error($mysqli);  
-        }  
-    }  
+    include('../manager/connection.php'); 
 
     $sql_code = "SELECT * FROM noticias";
     $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página

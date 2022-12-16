@@ -9,7 +9,7 @@
         (5, 'testando', 'default.png', 'agafdgdg  as fasd fsf sfa sdfd', '2022-12-14 19:04:36');";  
         $sql_query = $mysqli->query($sql_code) or die("<p>Falha na operação</p>");  
         if ($sql_query) {  
-             header('location:index.html');
+             header('location:index.php');
         }else{  
              echo "Error: ".mysqli_error($mysqli);  
         }

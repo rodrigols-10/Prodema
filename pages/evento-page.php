@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prodema - Notícias</title>
+    <title>Prodema - Eventos</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/main.css">
@@ -99,31 +99,40 @@
     <main>
         <!-- content -->
         <section class="info">
+<?php
+  include('../manager/connection.php');
+
+  if (isset($_GET['id'])) {
+      $id = $_GET['id'];  
+      $sql_code = "SELECT * FROM eventos WHERE `eventos`.`id` = $id";
+      $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição");
+      if (isset($sql_query)) {
+        $eventos = $sql_query->fetch_assoc();
+        $time = date_format(new DateTime($eventos['horario']), 'H:i');
+        if($time == '00:00') $time = '--:--';
+?>
           <article class="info-col1">
             <div class="title-info">
-              <h1>Índice de Doenças provenientes da Radioatividade é tema de ação desenvolvida no Seridó pelo Prodema/UFRN</h1>
-              <p><i class="fa-regular fa-calendar"></i> 06.dez.2022</p>
+              <h1><?php echo $eventos['titulo'] ?></h1>
+              <div class="cronograma">
+                <p><i class="fa-regular fa-calendar"></i> <?php echo date_format(new DateTime($eventos['inicio']),'d.m.Y') . " à " . date_format(new DateTime($eventos['fim']),'d.m.Y') ?></p>
+                <p><i class="fa-regular fa-clock"></i> Horário: <?php echo $time ?></p>
+                <p> Inscrições: <a href="<?php echo $eventos['inscricoes'] ?>"><?php echo $eventos['inscricoes'] ?></a></p>
+              </div>
+              <p><i class="fa-regular fa-calendar"></i> </p>
             </div>
             <div class="info-page-img">
-                <img src="../uploads/noticia4.jpg" alt="imagem da notícia">
+                <img src="../uploads/<?php echo $eventos['banner'] ?>" alt="imagem do evento">
             </div>
-            <p>A ação foi desenvolvida pelo Programa de Pós-Graduação em Desenvolvimento e Meio Ambiente (Prodema) nos municípios de Lajes Pintadas e Santa Cruz.</p>
-
-            <p>Recentemente pesquisadores do Laboratório de Genética Toxicológica (Genetox/UFRN), desenvolveram estudos sobre a radioatividade natural no Brasil. Os resultados demonstram níveis de radiação acima das diretrizes internacionais e consideram esta região do território brasileiro como a de mais alta radiação natural, em decorrência da exposição de produtos radioativos, como o gás radônio (Rn) e o chumbo (Pb). Esses elementos em elevada exposição podem levar às pessoas o desenvolvimento de neoplasias, tumores originados pelo aumento do número de células no organismo.</p>
-              
-            <p>Motivados pelo índice de doenças provenientes da radioatividade natural nas regiões do Seridó, alunos e professores do Programa de Pós-Graduação em Desenvolvimento e Meio Ambiente (Prodema), vinculado ao Centro de Biociências (CB/UFRN) e a Faculdade de Ciências da Saúde do Trairi (Facisa/UFRN), promoveram um evento para despertar o pensamento crítico e científico da população acerca da temática. Intitulada Radioatividade natural na microrregião Borborema Potiguar: perspectivas em saúde, educação e meio ambiente, a ação aconteceu no período de 25 de novembro e 2 de dezembro, nos municípios de Lajes Pintadas e Santa Cruz.</p>
-            <div class="info-page-other-img">
-              <img src="../uploads/noticia4-1.jpg" alt="imagem da notícia">
-              <img src="../uploads/noticia4-2.jpg" alt="imagem da notícia">
-              <img src="../uploads/noticia4-3.jpg" alt="imagem da notícia">
-            </div>
-            <!-- <div class="info-page-other-img">
-              
-            </div>
-            <div class="info-page-other-img">
-              
-            </div> -->
+            <?php echo $eventos['conteudo'] ?>
           </article>
+<?php
+      }else{  
+           echo "Error: ".mysqli_error($mysqli);
+      }
+  }
+?>
+          
           <aside class="info-col2">
             <div class="title-emphasis side">
               <h1>DOCUMENTOS IMPORTANTES</h1>

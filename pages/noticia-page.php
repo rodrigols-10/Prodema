@@ -35,7 +35,7 @@
       </ul>
     </div>
     <!-- IMAGEM - LOGO DA PRODEMA -->
-    <a class="nav-logo page" href="../index.html">
+    <a class="nav-logo page" href="../index.php">
       <img id="logo" src="../assets/logo2.png" alt="logotipo da Prodema">
     </a>
         <!-- Navbar sticky -->
@@ -78,7 +78,7 @@
                     <!-- DROPDOWN -->
                     <div class="dropdown-content" style="visibility:hidden">
                         <a href="noticias.php">Notícias</a>
-                        <a href="eventos.html">Eventos</a>
+                        <a href="eventos.php">Eventos</a>
                         </div>
                   </li>
                 <li class="nav-item">

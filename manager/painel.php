@@ -45,7 +45,7 @@ include('protect-page.php')
                 <p>Adicionar, excluir ou editar notícias</p>
               </div>
             </a>
-            <a class="info-item" href="#">
+            <a class="info-item" href="eventos-control.php">
               <figure class="info-img" title="imagem" alt="imagem">
                 <img src="edit.png" style="width:100px;height: 100px;object-fit: cover">
               </figure>

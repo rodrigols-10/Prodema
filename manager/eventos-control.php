@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prodema - Notícias</title>
+    <title>Prodema - Eventos</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/main.css">
@@ -31,43 +31,43 @@
       <section class="info">
         <article class="info-col1">
           <div class="title-emphasis">
-            <h1>NOTÍCIAS</h1>
+            <h1>EVENTOS</h1>
           </div>
-          <div id="noticias">
-            <!-- ITENS DE NOTICIAS -->
-            <a href="create-noticia.php" class="info-item" style="justify-content:center;align-items:center;height:100px;border:2px solid #ccc;border-radius:10px;">
-            <i style="font-size: 2rem; color:gray;" class="fa-solid fa-plus"></i> <span style="font-size: 1.5rem; color:gray;font-weight:bold;">NOVA NOTÍCIA</span>
+          <div id="eventos">
+            <!-- ITENS DE EVENTOS -->
+            <a href="create-evento.php" class="info-item" style="justify-content:center;align-items:center;height:100px;border:2px solid #ccc;border-radius:10px;">
+            <i style="font-size: 2rem; color:gray;" class="fa-solid fa-plus"></i> <span style="font-size: 1.5rem; color:gray;font-weight:bold;">NOVO EVENTO</span>
             </a>
 <?php
     include('connection.php');
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];  
-        $sql_code = "DELETE FROM `noticias` WHERE `noticias`.`id` = $id";  
+        $sql_code = "DELETE FROM `eventos` WHERE `eventos`.`id` = $id";  
         $sql_query = $mysqli->query($sql_code) or die("<p>Falha na operação</p>");  
         if ($sql_query) {  
-             header('location:noticias-control.php');  
+             header('location:eventos-control.php');  
         }else{  
              echo "Error: ".mysqli_error($mysqli);  
         }  
     }  
 
-    $sql_code = "SELECT * FROM noticias";
+    $sql_code = "SELECT * FROM eventos";
     $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição");
       
-    while($noticias = $sql_query->fetch_assoc()){
+    while($eventos = $sql_query->fetch_assoc()){
         ?>
         <div style="display:flex; flex-wrap:nowrap; justify-content: space-between;align-items:center;">
             <div class="info-item" style="background-color:white;">
                 <figure class="info-img" title="imagem" alt="imagem">
-                <img src="../uploads/<?php echo $noticias['banner'] ?>" style="width:100px;height: 100px;object-fit: cover">
+                    <img src="../uploads/<?php echo $eventos['banner'] ?>" style="width:100px;height: 100px;object-fit: cover">
                 </figure>
                 <div class="info-title">
-                <h2><?php echo $noticias['titulo'] ?></h2>
-                <p><i class="fa-regular fa-calendar"></i> <?php echo date_format(new DateTime($noticias['data']),'d.m.Y') ?></p>
+                    <h2><?php echo $eventos['titulo'] ?></h2>
+                    <p><i class="fa-regular fa-calendar"></i> <?php echo date_format(new DateTime($eventos['inicio']),'d.m.Y') . " à " . date_format(new DateTime($eventos['fim']),'d.m.Y')?></p>
                 </div>
             </div>
-            <a class="info-item" style="color: red; font-size: 2rem; margin: auto 1rem; padding: 1rem" href="noticias-control.php?id=<?php echo $noticias['id']?>">
+            <a class="info-item" style="color: red; font-size: 2rem; margin: auto 1rem; padding: 1rem" href="eventos-control.php?id=<?php echo $eventos['id']?>">
                 <i class="fa-solid fa-trash-can"></i>
                 </a>
         </div>

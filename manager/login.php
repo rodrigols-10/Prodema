@@ -15,7 +15,7 @@
       <div class="options">
         <ul style="display:flex; justify-content:space-between;">
           <li style="height: 100%">
-            <a href="../index.html" style="height: 100%"><i alt="voltar" title="Voltar" class="fa-solid fa-arrow-left"></i> Voltar</a>
+            <a href="../index.php" style="height: 100%"><i alt="voltar" title="Voltar" class="fa-solid fa-arrow-left"></i> Voltar</a>
           </li>
           <li style="visibility: hidden; height: 100%">
             <a href="" title="Sair do sistema"><i alt="Sair do sistema" class="fa-solid fa-arrow-right-to-bracket"></i> Sair</a>
