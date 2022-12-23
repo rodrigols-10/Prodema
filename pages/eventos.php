@@ -107,7 +107,7 @@
 <?php
     include('../manager/connection.php');
 
-    $sql_code = "SELECT * FROM eventos";
+    $sql_code = "SELECT * FROM eventos ORDER BY data DESC";
     $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
       
     while($eventos = $sql_query->fetch_assoc()){

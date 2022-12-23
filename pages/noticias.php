@@ -107,7 +107,7 @@
 <?php
     include('../manager/connection.php'); 
 
-    $sql_code = "SELECT * FROM noticias";
+    $sql_code = "SELECT `id`,`titulo`,`banner`,`data` FROM noticias ORDER BY data DESC";
     $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
       
     while($noticias = $sql_query->fetch_assoc()){
