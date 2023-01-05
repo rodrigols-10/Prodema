@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function(){
 // ADICIONANDO CLICKS PARA OS MENUS QUE MOSTRAM SEUS DROPDOWN
 document.getElementsByClassName('nav-link')[0].addEventListener('click',()=>{subMenuControl(0)});
 document.getElementsByClassName('nav-link')[2].addEventListener('click',()=>{subMenuControl(1)});
-document.getElementsByClassName('nav-link')[3].addEventListener('click',()=>{subMenuControl(2)});
+document.getElementsByClassName('nav-link')[4].addEventListener('click',()=>{subMenuControl(2)});
 
 // VERIFICANDO SE OCORRE UM CLICK FORA DOS SUBMENUS PARA FECHÁ-LOS
 // let pointer = '';

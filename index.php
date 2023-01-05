@@ -74,6 +74,9 @@
                     <a href="pages/seminarios-e-atividades.html">Seminários e atividades obrigatórias</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/mapa.html">Egressos</a>
+                </li>
                 <li class="nav-item dropdown">
                   <button class="nav-link">Comunicação <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
                   <!-- DROPDOWN -->
@@ -269,7 +272,7 @@
               </p>
               <p>Centro de Biociências</p>
               <p>Universidade Federal do Rio Grande do Norte</p>
-              <p>CEP: 59.078-970</p>
+              <p>CEP: 59.078-900</p>
               <p>Campus Universitário/ Lagoa Nova </p>
               <p>Natal - RN</p>
             </div>

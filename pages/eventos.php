@@ -73,13 +73,16 @@
                         <a href="seminarios-e-atividades.html">Seminários e atividades obrigatórias</a>
                         </div>
                     </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="mapa.html">Egressos</a>
+                    </li>
                     <li class="nav-item dropdown">
-                      <button class="nav-link">Comunicação <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
-                      <!-- DROPDOWN -->
-                      <div class="dropdown-content" style="visibility:hidden">
+                    <button class="nav-link">Comunicação <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
+                    <!-- DROPDOWN -->
+                        <div class="dropdown-content" style="visibility:hidden">
                           <a href="eventos.php">Notícias</a>
                           <a href="eventos.php">Eventos</a>
-                          </div>
+                        </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="fale-conosco.html">Fale conosco</a>
@@ -107,7 +110,7 @@
 <?php
     include('../manager/connection.php');
 
-    $sql_code = "SELECT * FROM eventos ORDER BY data DESC";
+    $sql_code = "SELECT * FROM eventos ORDER BY inicio DESC";
     $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
       
     while($eventos = $sql_query->fetch_assoc()){
@@ -157,7 +160,7 @@
               </p>
               <p>Centro de Biociências</p>
               <p>Universidade Federal do Rio Grande do Norte</p>
-              <p>CEP: 59.078-970</p>
+              <p>CEP: 59.078-900</p>
               <p>Campus Universitário/ Lagoa Nova </p>
               <p>Natal - RN</p>
             </div>

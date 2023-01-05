@@ -1,0 +1,16 @@
+@font-face{
+    font-family: LiberationSans;
+    src: url("LiberationSans-Regular.ttf");
+}
+
+@font-face{
+    font-family: LiberationSans;
+    src: url("LiberationSans-Bold.ttf");
+    font-weight: bold;
+}
+
+@font-face{
+    font-family: LiberationSans;
+    src: url("LiberationSans-Italic.ttf");
+    font-style: italic;
+}
