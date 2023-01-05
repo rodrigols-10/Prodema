@@ -214,6 +214,66 @@
             
           </div>
       </section>
+      <section class="info">
+          <div class="info-col3">
+            <h1>Os Objetivos de Desenvolvimento Sustentável no Brasil</h1>
+            <p>Os Objetivos de Desenvolvimento Sustentável são um apelo global à ação para acabar com a pobreza, proteger o meio ambiente e o clima e garantir que as pessoas, em todos os lugares, possam desfrutar de paz e de prosperidade. Estes são os objetivos para os quais as Nações Unidas estão contribuindo a fim de que possamos atingir a Agenda 2030 no Brasil.</p>
+            <div id="onu-fig">
+            <a href="https://brasil.un.org/pt-br/sdgs/1">
+              <img src="../assets/onu1.svg" alt="Erradicação da pobreza">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/2">
+              <img src="../assets/onu2.svg" alt="Fome zero e agricultura sustentável">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/3">
+              <img src="../assets/onu3.svg" alt="Saúde e bem-estar">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/4">
+              <img src="../assets/onu4.svg" alt="Educação de qualidade">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/5">
+              <img src="../assets/onu5.svg" alt="Igualdade de gênero">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/6">
+              <img src="../assets/onu6.svg" alt="Água potável e saneamento">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/7">
+              <img src="../assets/onu7.svg" alt="Energia limpa e acessível">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/8">
+              <img src="../assets/onu8.svg" alt="Trabalho descente e crescimento econômico">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/9">
+              <img src="../assets/onu9.svg" alt="Industria, inovação e infraestrutura">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/10">
+              <img src="../assets/onu10.svg" alt="Redução das desigualdades">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/11">
+              <img src="../assets/onu11.svg" alt="Cidades e comunidades sustentáveis">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/12">
+              <img src="../assets/onu12.svg" alt="Consumo e produção responsáveis">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/13">
+              <img src="../assets/onu13.svg" alt="Ação contra a mudança global do clima">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/14">
+              <img src="../assets/onu14.svg" alt="Vida na água">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/15">
+              <img src="../assets/onu15.svg" alt="Vida terrestre">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/16">
+              <img src="../assets/onu16.svg" alt="Paz, justiça e instituições eficazes">
+            </a>
+            <a href="https://brasil.un.org/pt-br/sdgs/17">
+              <img src="../assets/onu17.svg" alt="Parcerias e meios de implementação">
+            </a>
+            </div>
+            
+          </div>
+      </section>
         <!-- INSTITUTOS PARCEIROS -->
         <section class="parceiros">
           <h1>IES</h1>
