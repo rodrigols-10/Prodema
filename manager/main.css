@@ -3,6 +3,7 @@
 body{
     font-size: 0.9rem;
     background-color: rgb(244, 248, 248);
+    margin: 0;
     /* flex manipulation */
 }
 
@@ -143,7 +144,7 @@ nav{
 .options{
     width: 90%;
     text-align: right;
-    margin: 0.3rem 0 0 0;
+    margin:  0 auto;
     user-select: none;
 }
 .options ul{
@@ -166,7 +167,7 @@ nav{
 @media (min-width: 1200px) {
     .options{
         width: 1200px;
-        margin: 0 auto;
+        margin:  0 5%;
     }
 }
 /* ------DROPDOWN MENU------- */

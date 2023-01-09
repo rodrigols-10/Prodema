@@ -5,6 +5,7 @@
     border: 3px solid rgb(220, 219, 248);
     padding: 0.3rem;
     margin: 1rem 0;
+    box-sizing: border-box;
 }
 .title-emphasis h1{
     max-width: 800px;
@@ -69,7 +70,7 @@
 
 .info-page-img{
     width: 100%;
-    height: 300px;
+    /* height: 300px; */
     background-color: rgb(244, 248, 248);
     margin-bottom: 2rem;   
 }
@@ -104,13 +105,14 @@
     }
 }
 section{
-    max-width: 1200px;
+    /* max-width: 1200px; */
+    width: 100%;
     margin: 0 auto;
-    padding: 0 2rem;
+    /* padding: 0 1rem; */
 }
 article{
     max-width: 800px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     padding: 2rem 3rem;
     text-align: justify;
     line-height: 1.5rem;
@@ -120,24 +122,30 @@ article{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    /* justify-content: space-around; */
+    justify-content: space-around;
     gap:10px;
-    max-width: 1200px;
-    margin: 1rem auto;
+    width: 100%;
+    margin: 1rem 0;
 }
 .info-col1{
     position: relative;
     padding: 1rem 2rem 4rem 2rem;
-    width: 800px;
+    /* width: 800px; */
     background-color: white;
     border-radius: 10px;
 }
 .info-col2{
     position: relative;
-    width: 320px;
+    width: 380px;
     padding: 1rem 1rem 4rem 1rem;
     background-color: white;
     border-radius: 10px;
+}
+.info-create{
+    position: relative;
+    min-width: 405px;
+    padding: 0rem 1rem 1rem 1rem;
+    background-color: transparent;
 }
 .ver-mais{
     position: absolute;
@@ -173,11 +181,11 @@ article{
 
 @media (max-width: 768px){
     .info {
-        justify-content:flex-start;
+        justify-content: space-around;;
         flex-wrap: wrap;
         row-gap: 10px;
         column-gap:0;
-        margin: 1rem 3%;
+        margin: 1rem 0;
     }
     .info-col1{
         position: relative;
@@ -192,6 +200,12 @@ article{
         padding: 1rem 1rem 4rem 1rem;
         background-color: white;
         border-radius: 10px;
+    }
+    .info-create{
+        position: relative;
+        min-width: 380px;
+        padding: 1rem 1rem 1rem 1rem;
+        background-color: transparent;
     }
 }
 
@@ -224,11 +238,12 @@ form.creation{
     display: flex;
     flex-direction: column;
     max-width: 500px;
-    margin: 2rem auto;
+    margin: 0 auto;
 }
 
-form.creation div{
+form.creation .fields{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
@@ -239,7 +254,17 @@ form.creation div{
     min-width: 373px;
 }
 
-.submit{
-    margin: 3rem auto 0 auto;
-    width: 100px;
+form.creation .form-buttons{
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    margin: 1rem auto 0.5rem auto;
+    width: 100%;
+    justify-content: space-between;
 }
+
+.form-buttons input,.form-buttons button{
+    width:100px;
+    height: 50px;
+}
+

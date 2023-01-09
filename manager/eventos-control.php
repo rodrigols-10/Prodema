@@ -52,7 +52,7 @@
         }  
     }  
 
-    $sql_code = "SELECT * FROM eventos";
+    $sql_code = "SELECT * FROM eventos ORDER BY inicio DESC";
     $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição");
       
     while($eventos = $sql_query->fetch_assoc()){

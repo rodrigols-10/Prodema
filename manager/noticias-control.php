@@ -35,7 +35,7 @@
           </div>
           <div id="noticias">
             <!-- ITENS DE NOTICIAS -->
-            <a href="create-noticia.php" class="info-item" style="justify-content:center;align-items:center;height:100px;border:2px solid #ccc;border-radius:10px;">
+            <a href="criar-noticia.php" class="info-item" style="justify-content:center;align-items:center;height:100px;border:2px solid #ccc;border-radius:10px;">
             <i style="font-size: 2rem; color:gray;" class="fa-solid fa-plus"></i> <span style="font-size: 1.5rem; color:gray;font-weight:bold;">NOVA NOTÍCIA</span>
             </a>
 <?php
@@ -52,7 +52,7 @@
         }  
     }  
 
-    $sql_code = "SELECT * FROM noticias";
+    $sql_code = "SELECT * FROM noticias ORDER BY data DESC";
     $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição");
       
     while($noticias = $sql_query->fetch_assoc()){

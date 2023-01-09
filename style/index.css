@@ -79,6 +79,28 @@ body{
         background-color: white;
         border-radius: 10px;
     }
+    .info-col3{
+        position: relative;
+        width: 100%;
+        padding: 1rem 1rem 4rem 1rem;
+        background-color: white;
+        border-radius: 10px;
+    }
+}
+
+.onu-fig{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+.onu-fig a img{
+    width: 130px;
+    border-radius: 3px;
+    border: 2px solid white;
+}
+.onu-fig a img:hover{
+    border: 0;
+    margin: 0;
 }
 
 #vertical-line{
@@ -137,20 +159,4 @@ body{
 }
 .brasao img{
     height: 80px;
-}
-
-#onu-fig{
-display: flex;
-flex-wrap: wrap;
-gap: 3px;
-/* justify-content: center; */
-}
-#onu-fig img{
-    width: 130px;
-    border-radius: 3px;
-    border: 2px solid white;
-}
-#onu-fig img:hover{
-    border: 0;
-    margin: 0;
 }
