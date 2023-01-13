@@ -335,7 +335,6 @@
           larguraField.placeholder = "100%";
         } else {
           larguraField.disabled = false;
-          console.log(widthNow[position]);
           if(!stateWidth[position]) larguraField.value = widthNow[position];
           stateWidth[position] = true;
           // larguraField.value = larguraField.placeholder == "100%" ? "" : larguraField.value;
@@ -404,7 +403,6 @@
       }
 
       const AddingExtraContent = function(position){
-        console.log(document.querySelector('#conteudo'+position));
         document.querySelector('#content'+position).innerHTML = document.querySelector('#conteudo'+position).value;
       }
 
