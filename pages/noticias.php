@@ -74,12 +74,12 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="mapa.html">Egressos</a>
-                </li>
-                <li class="nav-item dropdown">
-                  <button class="nav-link">Comunicação <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
-                  <!-- DROPDOWN -->
-                      <div class="dropdown-content" style="visibility:hidden">
+                      <a class="nav-link" href="mapa.html">Egressos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <button class="nav-link">Comunicação <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
+                      <!-- DROPDOWN -->
+                          <div class="dropdown-content" style="visibility:hidden">
                           <a href="noticias.php">Notícias</a>
                           <a href="eventos.php">Eventos</a>
                           </div>
