@@ -255,12 +255,7 @@ form.creation .fields{
 }
 
 form.creation .form-buttons{
-    display: flex;
-    flex-direction: row-reverse;
-    flex-wrap: nowrap;
     margin: 1rem auto 0.5rem auto;
-    width: 100%;
-    justify-content: space-between;
 }
 
 .form-buttons input,.form-buttons button{

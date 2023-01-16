@@ -81,20 +81,13 @@
         $pos = $pos + 1;
       }
       $pos = 0;
-      // if(isset($_FILES['imagens'])){
-      //   $image = $_FILES['imagens'];
-      //   foreach($image['name'] as $key => $img){          
-      //     $success = uploadImages($image['tmp_name'][$key],$image['name'][$key]);
-      //   }
-      //   unset($img);
-      // }
   
       $sql_code = "INSERT INTO noticias (titulo, banner, conteudo) VALUES ('$titulo', '$bannerName', '$conteudo')";
       $sql_query = $mysqli->query($sql_code) or die("<p>Falha na operação</p>");
       if ($sql_query) {
           header('Location:noticias-control.php'); 
           exit();
-      }else{  
+      }else{
           echo "Error: ".mysqli_error($mysqli);  
       }
     }
@@ -146,14 +139,14 @@
           <form class="creation" action="" method="POST" enctype="multipart/form-data">
             <div class="fields">
             <label>Título: </label>
-              <textarea name="titulo" id="titulo-input" rows="3" cols="50" onchange="document.querySelector('#titulo-output').innerHTML = document.querySelector('#titulo-input').value;" required></textarea>
+              <textarea name="titulo" id="titulo-input" rows="3" cols="50" onchange="document.querySelector('#titulo-output').innerHTML = document.querySelector('#titulo-input').value;" onkeydown="javascript: return PreventEnterSubmit(event)" required></textarea>
             </div>
             <div class="fields">
               <label>Banner:<br>
-              <input class="line" type="file" name="banner" id="banner-input" onchange="AddingBanner()" accept="image/*" required>
+              <input class="line" type="file" name="banner" id="banner-input" onchange="AddingBanner()" accept="image/*">
               </label>
               <label>Legenda (opcional):</label>
-                <input style="width:100%" type="text" name="bannerlegend" id="bannerlegend" onchange="AddingInicialContent('bannerlegend')">
+                <input style="width:100%" type="text" name="bannerlegend" id="bannerlegend" onchange="AddingInicialContent('bannerlegend')" onkeydown="javascript: return PreventEnterSubmit(event)">
             </div>
             <div class="fields">
               <label>Conteúdo (em HTML):</label>
@@ -164,15 +157,9 @@
             <div id="add-fields">
               <button class="btn btn-sm btn-secondary" type="button" onclick="addImgForm()"><i class="fa-solid fa-plus"></i> Adicionar Imagem</button>
             </div>
-            <!-- <div class="fields">
-              <label>Imagens: </label>
-              <input multiple class="line" type="file" name="imagens[]" accept="image/*" value="">
-            </div> -->
             <div class="form-buttons">
-                <button id="preview" class="btn btn-sm btn-primary" type="button">Visualizar</button>
                 <input class="btn btn-sm btn-success" type="submit" value="Submit">
             </div>
-            <!-- <input type="hidden" id="allcontent"> -->
           </form>
           <div id='formato' style="max-width:373px">
           <hr>
@@ -200,7 +187,6 @@
             <p id="data-atual"><i class="fa-regular fa-calendar"></i> --.--.--</p>
           </div>
           <div class="info-page-img">
-            Banner aqui
             <!-- BANNER AQUI -->
           </div>
           <div id="conteudo-output">
@@ -208,37 +194,45 @@
             
           </div>
           <div id="texto1-output">
-            <p>Conteúdo</p>
+            <p>Corpo da notícia aqui</p>
           </div>
-            <!-- CONTEÚDO AQUI -->
+            <!-- CONTEÚDO EXTRA AQUI -->
           </div>
         </article>
       </section>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <!-- <script src="../scripts/main.js"></script> -->
-    <script>
-      const preview = document.querySelector("#preview");
-      const outputDate = document.querySelector("#data-atual");
 
-      let widthNow = [''];
-      let stateWidth = [false];
+    <script>
 
       //ADICIONANDO DATA ATUAL
+      const outputDate = document.querySelector("#data-atual");
       let now = new Date();
       let month = (now.getMonth() < 9) ? ".0"+(now.getMonth()+1) : "."+(now.getMonth()+1);
       let nowStr = now.getDate() + month + "." + now.getFullYear();
       outputDate.innerHTML = "<i class='fa-regular fa-calendar'></i> " + nowStr;
 
-
+      //VARIAVEIS DE CONTROLE PARA A ADIÇÃO DE NOVOS CAMPOS E COMPORTAMENTO
       let addedFormContent = [];
       let totalContent = 0;
       let allContent = ["",'<p>conteudo</p>'];
+      let widthNow = [''];
+      let stateWidth = [false];
 
       const inputBanner = document.querySelector("#banner-input");
       const outputBanner = document.querySelector(".info-page-img");
       outputBanner.innerHTML = "";
 
+      //PREVENINDO SUBMISSÃO DO FORM POR PRESSIONAR ENTER
+      const PreventEnterSubmit = function(e) {
+        let boolean = true;
+        if(e.keyCode === 13) {
+          boolean = false;
+        }
+        return boolean;
+      }
+
+      //ADICIONANDO O BANNER NA PRÉVIA
       const AddingBanner = function(){
         const file = inputBanner.files[0];
 
@@ -250,24 +244,14 @@
 
             const img = document.createElement("img");
             img.src = readerTarget.result;
-            // img.classList.add("picture__img");
             outputBanner.innerHTML = "";
             outputBanner.appendChild(img);
           });
 
           reader.readAsDataURL(file);
         } else {
-          // outputBanner.innerHTML = "Imagem não selecionada";
         }
       }
-
-      // CLIQUE DO BOTÃO VISUALIZAR
-      preview.addEventListener("click", function (e) {
-        //TITULO
-        // document.querySelector("#titulo-output").innerHTML = document.querySelector("#titulo-input").value;
-        // DATA DA PUBLICAÇÃO
-        
-      });
 
       // CLIQUE DO BOTÃO <ADICIONAR IMAGEM>
       const addImgForm = function(){
@@ -294,12 +278,12 @@
                   <div style="display:inline-block; margin-left: 1rem;">
                     <label> LARGURA: </label>
                     <br>
-                    <input style="width:64px" type="number" min="0" id="size${totalContent}" name="size${totalContent}" onchange="AddingImg(${totalContent})" placeholder="100%" disabled>
+                    <input style="width:64px" type="number" min="0" id="size${totalContent}" name="size${totalContent}" onchange="AddingImg(${totalContent})" placeholder="100%" onkeydown="javascript: return PreventEnterSubmit(event)" disabled>
                   </div>
                   
                 </div>
                 <label>Legenda (opcional):</label>
-                <input style="width:100%" type="text" name="legend${totalContent}" onchange="AddingImg(${totalContent})">
+                <input style="width:100%" type="text" name="legend${totalContent}" onchange="AddingImg(${totalContent})" onkeydown="javascript: return PreventEnterSubmit(event)">
               </div>`)
         document.querySelector('#added-fields').insertAdjacentHTML( 'beforeEnd', addedFormContent[totalContent]);
         document.querySelector('#add-fields').innerHTML =`

@@ -118,7 +118,14 @@
               <p><i class="fa-regular fa-calendar"></i> <?php echo date_format(new DateTime($noticias['data']),'d.m.Y') ?></p>
             </div>
             <div class="info-page-img">
-                <img src="../uploads/<?php echo $noticias['banner'] ?>" alt="imagem da notícia">
+              <?php
+                if($noticias['banner'] == 'default.png') echo "";
+                else{
+                  echo "<img src='../uploads/" . $noticias['banner'] . "' alt='imagem da notícia'>";
+              
+                }
+              ?>
+                
             </div>
             <?php echo $noticias['conteudo'] ?>
           </article>
