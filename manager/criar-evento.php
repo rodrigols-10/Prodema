@@ -35,9 +35,13 @@
         }
       }
       $titulo = $_POST['titulo'];
+      $inicio = $_POST['inicio'];
+      $fim = $_POST['fim'];
+      $horario = $_POST['horario'];
+      $inscricoes = $_POST['inscricoes'];
       $conteudo = "<div style=\'text-align:center\'><p>" . $_POST['bannerlegend'] . "</p></div>";
       $conteudo = $conteudo . "<div>" . $_POST['conteudo'] . "</div>";
-      echo $conteudo;
+      // echo $conteudo;
       $stop = false;
       $pos = 0;
       while(!$stop){
@@ -60,13 +64,13 @@
                 $conteudo = $conteudo . "<div style=\'width: 100%; float: none; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%\'><br> <p>" . $_POST[$legendX] . "</p></div>";
                 break;
               case 2:
-                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;float: left} @media (max-width: 800px){ .imgsize$pos{width:100%;float: none} }</style><div class=\'imgsize$pos\' style=\'text-align: center; margin: 0px 1rem 0px 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%;\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<div style=\'width: $finalSize; float: left; text-align: center; margin: 0px 1rem 0px 0px;\'><img src=\'../uploads/$imgName\' style=\'width: $finalSize;\'><br> <p>" . $_POST[$legendX] . "</p></div>";
                 break;
               case 3:
-                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;float: right; margin: 0px 0px 0px 1rem;} @media (max-width: 800px){ .imgsize$pos{width:100%;float: none;margin:0} }</style><div class=\'imgsize$pos\' style=\'text-align: center;\'><img src=\'../uploads/$imgName\' style=\'width: 100%;\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<div style=\'width: $finalSize; float: right; text-align: center; margin: 0px 0px 0px 1rem;\'><img src=\'../uploads/$imgName\' style=\'width: $finalSize;\'><br> <p>" . $_POST[$legendX] . "</p></div>";
                 break;
               case 4:
-                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;} @media (max-width: 800px){ .imgsize$pos{width:100%;} }</style><div style=\'width: 100%; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' class=\'imgsize$pos\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<div style=\'width: 100%; float: none; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' style=\'width: $finalSize;\'><br> <p>" . $_POST[$legendX] . "</p></div>";
                 break;
               default:
                 $conteudo = $conteudo . "<div style=\'width: 100%; float: none; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%\'><br> <p>" . $_POST[$legendX] . "</p></div>";
@@ -82,10 +86,10 @@
       }
       $pos = 0;
   
-      $sql_code = "INSERT INTO noticias (titulo, banner, conteudo) VALUES ('$titulo', '$bannerName', '$conteudo')";
+      $sql_code = "INSERT INTO eventos (titulo, banner, conteudo, inicio, fim, horario, inscricoes) VALUES ('$titulo', '$bannerName', '$conteudo', '$inicio', '$fim', '$horario', '$inscricoes')";
       $sql_query = $mysqli->query($sql_code) or die("<p>Falha na operação</p>");
       if ($sql_query) {
-          header('Location:noticias-control.php'); 
+          header('Location:eventos-control.php'); 
           exit();
       }else{
           echo "Error: ".mysqli_error($mysqli);  
@@ -112,7 +116,7 @@
         <div class="options">
         <ul style="display:flex; justify-content:space-between;">
             <li style="visibility: visible; height: 100%">
-            <a href="noticias-control.php" style="height: 100%"><i alt="voltar" title="Voltar" class="fa-solid fa-arrow-left"></i> Voltar</a>
+            <a href="eventos-control.php" style="height: 100%"><i alt="voltar" title="Voltar" class="fa-solid fa-arrow-left"></i> Voltar</a>
             </li>
             <li>
               <strong style="color: white">CRIAR NOTÍCIA</strong>
@@ -149,6 +153,22 @@
                 <input style="width:100%" type="text" name="bannerlegend" id="bannerlegend" onchange="AddingInicialContent('bannerlegend')" onkeydown="javascript: return PreventEnterSubmit(event)">
             </div>
             <div class="fields">
+              <label>Início: </label>
+              <input class="line" type="date" name="inicio" value="" onchange="AddingInicio()" required>
+            </div>
+            <div class="fields">
+              <label>Fim: </label>
+              <input class="line" type="date" name="fim" value="" onchange="AddingFim()" required>
+            </div>
+            <div class="fields">
+              <label>Horário: </label>
+              <input class="line" type="time" name="horario" onchange="AddingHorario()" value="">
+            </div>
+            <div class="fields">
+              <label>Inscrições: </label>
+              <input class="line" type="text" name="inscricoes" onchange="AddingInscricoes()" value="">
+            </div>
+            <div class="fields">
               <label>Conteúdo (em HTML):</label>
               <textarea id="conteudo-input" name="conteudo" rows="6" cols="50" onchange="AddingInicialContent('texto1')" required></textarea>
             </div>
@@ -167,16 +187,7 @@
             <br>
             <p>Use o editor HTML para formatar o conteúdo da notícia e cole no campo "Conteúdo":</p>
             <p><a href="https://htmled.it/editor-html/" target="_blank" rel="noopener noreferrer">Editor HTML Online</a></p>
-            <p>***OBS: Para adicionar imagens, faça upload delas em "Imagens" e no editor insira na localização da imagem: "../uploads/"+ nome da imagem junto da extensão.
-              <br>
-              Exemplos:
-              <br>
-              ../uploads/noticia.jpg
-              <br>
-              ../uploads/grande-evento.png
-              <br>
-              ../uploads/foto.jpg
-            </p>
+            
           </div>
         </aside>
 
@@ -184,7 +195,11 @@
         <article class="info-col1">
           <div class="title-info">
             <h1 id="titulo-output">TÍTULO AQUI</h1>
-            <p id="data-atual"><i class="fa-regular fa-calendar"></i> --.--.--</p>
+            <div class="cronograma">
+                <p><i class="fa-regular fa-calendar"></i> <span id="inicio-output">--.--.--</span> à <span id="fim-output">--.--.--</span></p>
+                <p><i class="fa-regular fa-clock"></i> Horário: <span id="horario-output"></span></p>
+                <p> Inscrições: <span id="inscricoes-output"></span></p>
+            </div>
           </div>
           <div class="info-page-img">
             <!-- BANNER AQUI -->
@@ -206,11 +221,11 @@
     <script>
 
       //ADICIONANDO DATA ATUAL
-      const outputDate = document.querySelector("#data-atual");
-      let now = new Date();
-      let month = (now.getMonth() < 9) ? ".0"+(now.getMonth()+1) : "."+(now.getMonth()+1);
-      let nowStr = now.getDate() + month + "." + now.getFullYear();
-      outputDate.innerHTML = "<i class='fa-regular fa-calendar'></i> " + nowStr;
+      // const outputDate = document.querySelector("#data-atual");
+      // let now = new Date();
+      // let month = (now.getMonth() < 9) ? ".0"+(now.getMonth()+1) : "."+(now.getMonth()+1);
+      // let nowStr = now.getDate() + month + "." + now.getFullYear();
+      // outputDate.innerHTML = "<i class='fa-regular fa-calendar'></i> " + nowStr;
 
       //VARIAVEIS DE CONTROLE PARA A ADIÇÃO DE NOVOS CAMPOS E COMPORTAMENTO
       let addedFormContent = [];
@@ -252,6 +267,24 @@
         } else {
         }
       }
+
+      const AddingInicio = function(){
+        let inicio = document.querySelector("input[name='inicio']").value;
+        if(inicio.includes("-")) inicio = inicio.split('-').reverse().join('.');
+        document.querySelector("#inicio-output").innerHTML = inicio;
+      }
+      const AddingFim = function(){
+        let fim = document.querySelector("input[name='fim']").value;
+        if(fim.includes("-")) fim = fim.split('-').reverse().join('.'); //transforma a data de yyyy-mm-dd para dd.mm.yyyy
+        document.querySelector("#fim-output").innerHTML = fim;
+      }
+      const AddingHorario = function(){
+        document.querySelector("#horario-output").innerHTML = document.querySelector("input[name='horario']").value;
+      }
+      const AddingInscricoes = function(){
+        document.querySelector("#inscricoes-output").innerHTML = document.querySelector("input[name='inscricoes']").value;
+      }
+
 
       // CLIQUE DO BOTÃO <ADICIONAR IMAGEM>
       const addImgForm = function(){
@@ -340,6 +373,10 @@
             
             const img = document.createElement("img");
             img.src = readerTarget.result;
+            // let imgclassList = img.classList;
+            // while (imgclassList.length > 0) {
+            //   imgclassList.remove(imgclassList.item(0));
+            // }
             switch (ImgPosition) {
               case '1':
                 img.style.width = "100%";
@@ -347,6 +384,8 @@
                 document.querySelector("#img"+position).style.float = "none";
                 document.querySelector("#img"+position).style.textAlign = "center";
                 document.querySelector("#img"+position).style.margin = "0";
+                // imgclassList.add("img-full");
+
                 break;
               case '2':
                 img.style.width = document.querySelector("#size"+position).value != "" ? document.querySelector("#size"+position).value+"px" : "100%";
@@ -354,6 +393,8 @@
                 document.querySelector("#img"+position).style.float = "left";
                 document.querySelector("#img"+position).style.textAlign = "center";
                 document.querySelector("#img"+position).style.margin = "0 1rem 0 0";
+                // imgclassList.add("img-left");
+                // document.querySelector("#img"+position).classList.add("img-left");
                 break;
               case '3':
                 img.style.width = document.querySelector("#size"+position).value != "" ? document.querySelector("#size"+position).value+"px" : "100%";
@@ -361,6 +402,8 @@
                 document.querySelector("#img"+position).style.float = "right";
                 document.querySelector("#img"+position).style.textAlign = "center";
                 document.querySelector("#img"+position).style.margin = "0 0 0 1rem";
+                // imgclassList.add("img-right");
+                // document.querySelector("#img"+position).classList.add("img-right");
                 break;
               case '4':
                 img.style.width = document.querySelector("#size"+position).value != "" ? document.querySelector("#size"+position).value+"px" : "100%";
@@ -368,6 +411,7 @@
                 document.querySelector("#img"+position).style.float = "none";
                 document.querySelector("#img"+position).style.textAlign = "center";
                 document.querySelector("#img"+position).style.margin = "0";
+                // imgclassList.add("img-center");
                 break;
               default:
                 img.style.width = "100%";
@@ -375,6 +419,7 @@
                 document.querySelector("#img"+position).style.float = "none";
                 document.querySelector("#img"+position).style.textAlign = "center";
                 document.querySelector("#img"+position).style.margin = "0";
+                // imgclassList.add("img-full");
                 break;
             }
             // img.classList.add("picture__img");

@@ -78,7 +78,7 @@
         <div class="options">
         <ul style="display:flex; justify-content:space-between;">
             <li style="visibility: visible; height: 100%">
-            <a href="noticias-control.php" style="height: 100%"><i alt="voltar" title="Voltar" class="fa-solid fa-arrow-left"></i> Voltar</a>
+            <a href="eventos-control.php" style="height: 100%"><i alt="voltar" title="Voltar" class="fa-solid fa-arrow-left"></i> Voltar</a>
             </li>
             <li>
             <a href="logout.php" title="Sair do sistema"><i alt="Sair do sistema" class="fa-solid fa-arrow-right-to-bracket"></i> Sair</a>

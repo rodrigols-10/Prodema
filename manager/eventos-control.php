@@ -35,7 +35,7 @@
           </div>
           <div id="eventos">
             <!-- ITENS DE EVENTOS -->
-            <a href="create-evento.php" class="info-item" style="justify-content:center;align-items:center;height:100px;border:2px solid #ccc;border-radius:10px;">
+            <a href="criar-evento.php" class="info-item" style="justify-content:center;align-items:center;height:100px;border:2px solid #ccc;border-radius:10px;">
             <i style="font-size: 2rem; color:gray;" class="fa-solid fa-plus"></i> <span style="font-size: 1.5rem; color:gray;font-weight:bold;">NOVO EVENTO</span>
             </a>
 <?php

@@ -122,7 +122,6 @@
                 <p><i class="fa-regular fa-clock"></i> Horário: <?php echo $time ?></p>
                 <p> Inscrições: <a href="<?php echo $eventos['inscricoes'] ?>"><?php echo $eventos['inscricoes'] ?></a></p>
               </div>
-              <p><i class="fa-regular fa-calendar"></i> </p>
             </div>
             <div class="info-page-img">
                 <img src="../uploads/<?php echo $eventos['banner'] ?>" alt="imagem do evento">
