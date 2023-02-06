@@ -121,7 +121,7 @@
               <?php
                 if($noticias['banner'] == 'default.png') echo "";
                 else{
-                  echo "<img src='../uploads/" . $noticias['banner'] . "' alt='imagem da notícia'>";
+                  echo "<img src='../uploads/" . $noticias['banner'] . "' alt='Banner da notícia'>";
               
                 }
               ?>

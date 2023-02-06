@@ -124,7 +124,13 @@
               </div>
             </div>
             <div class="info-page-img">
-                <img src="../uploads/<?php echo $eventos['banner'] ?>" alt="imagem do evento">
+              <?php
+                if($eventos['banner'] == 'default.png') echo "";
+                else{
+                  echo "<img src='../uploads/" . $eventos['banner'] . "' alt='Banner do evento'>";
+              
+                }
+              ?>
             </div>
             <?php echo $eventos['conteudo'] ?>
           </article>

@@ -157,7 +157,7 @@
 <?php
     include('manager/connection.php');
 
-    $sql_code = "SELECT * FROM eventos";
+    $sql_code = "SELECT `id`,`titulo`,`banner`,`inicio`,`fim` FROM eventos ORDER BY inicio DESC LIMIT 4";
     $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
     $count=1;
     $buttonVisible = 'hidden';

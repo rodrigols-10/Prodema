@@ -167,16 +167,16 @@
             <br>
             <p>Use o editor HTML para formatar o conteúdo da notícia e cole no campo "Conteúdo":</p>
             <p><a href="https://htmled.it/editor-html/" target="_blank" rel="noopener noreferrer">Editor HTML Online</a></p>
-            <p>***OBS: Para adicionar imagens, faça upload delas em "Imagens" e no editor insira na localização da imagem: "../uploads/"+ nome da imagem junto da extensão.
-              <br>
-              Exemplos:
-              <br>
-              ../uploads/noticia.jpg
-              <br>
-              ../uploads/grande-evento.png
-              <br>
-              ../uploads/foto.jpg
-            </p>
+            <br>
+            <p>Para adicionar links no texto, dentro do editor HTML:</p>
+            <ul>
+              <li>posicione o cursor ( "|" piscando) no ponto desejado ou selecione o trecho que deseja transformar em link;</li>
+              <li>Clique no ícone da corrente chamada de "inserir/editar ligação";</li>
+              <li>na pequena janela que abrirá, cole o seu link no campo URL;</li>
+              <li>Em "Texto a exibir" coloque o texto que será mostrado no lugar do link, como "CLIQUE AQUI", alguma frase que faça sentido ou repita o próprio link que colocou em "URL" (é comum fazer isso);</li>
+              <li>No campo "Título" se coloca o que gostaria de ser mostrado quando passar o mouse por cima (é opcional, pode ser deixado em branco)</li>
+              <li>No campo "Alvo" se escolhe se deseja abrir o link na mesma aba (opção "Nenhum") ou em uma aba diferente (opção "Nova Janela").</li>
+            </ul>
           </div>
         </aside>
 

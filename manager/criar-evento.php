@@ -64,13 +64,13 @@
                 $conteudo = $conteudo . "<div style=\'width: 100%; float: none; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%\'><br> <p>" . $_POST[$legendX] . "</p></div>";
                 break;
               case 2:
-                $conteudo = $conteudo . "<div style=\'width: $finalSize; float: left; text-align: center; margin: 0px 1rem 0px 0px;\'><img src=\'../uploads/$imgName\' style=\'width: $finalSize;\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;float: left} @media (max-width: 800px){ .imgsize$pos{width:100%;float: none} }</style><div class=\'imgsize$pos\' style=\'text-align: center; margin: 0px 1rem 0px 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%;\'><br> <p>" . $_POST[$legendX] . "</p></div>";
                 break;
               case 3:
-                $conteudo = $conteudo . "<div style=\'width: $finalSize; float: right; text-align: center; margin: 0px 0px 0px 1rem;\'><img src=\'../uploads/$imgName\' style=\'width: $finalSize;\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;float: right; margin: 0px 0px 0px 1rem;} @media (max-width: 800px){ .imgsize$pos{width:100%;float: none;margin:0} }</style><div class=\'imgsize$pos\' style=\'text-align: center;\'><img src=\'../uploads/$imgName\' style=\'width: 100%;\'><br> <p>" . $_POST[$legendX] . "</p></div>";
                 break;
               case 4:
-                $conteudo = $conteudo . "<div style=\'width: 100%; float: none; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' style=\'width: $finalSize;\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;} @media (max-width: 800px){ .imgsize$pos{width:100%;} }</style><div style=\'width: 100%; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' class=\'imgsize$pos\'><br> <p>" . $_POST[$legendX] . "</p></div>";
                 break;
               default:
                 $conteudo = $conteudo . "<div style=\'width: 100%; float: none; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%\'><br> <p>" . $_POST[$legendX] . "</p></div>";
@@ -119,7 +119,7 @@
             <a href="eventos-control.php" style="height: 100%"><i alt="voltar" title="Voltar" class="fa-solid fa-arrow-left"></i> Voltar</a>
             </li>
             <li>
-              <strong style="color: white">CRIAR NOTÍCIA</strong>
+              <strong style="color: white">CRIAR EVENTO</strong>
             </li>
             <li>
             <a href="logout.php" title="Sair do sistema"><i alt="Sair do sistema" class="fa-solid fa-arrow-right-to-bracket"></i> Sair</a>
@@ -187,7 +187,16 @@
             <br>
             <p>Use o editor HTML para formatar o conteúdo da notícia e cole no campo "Conteúdo":</p>
             <p><a href="https://htmled.it/editor-html/" target="_blank" rel="noopener noreferrer">Editor HTML Online</a></p>
-            
+            <br>
+            <p>Para adicionar links no texto, dentro do editor HTML:</p>
+            <ul>
+              <li>posicione o cursor ( "|" piscando) no ponto desejado ou selecione o trecho que deseja transformar em link;</li>
+              <li>Clique no ícone da corrente chamada de "inserir/editar ligação";</li>
+              <li>na pequena janela que abrirá, cole o seu link no campo URL;</li>
+              <li>Em "Texto a exibir" coloque o texto que será mostrado no lugar do link, como "CLIQUE AQUI", alguma frase que faça sentido ou repita o próprio link que colocou em "URL" (é comum fazer isso);</li>
+              <li>No campo "Título" se coloca o que gostaria de ser mostrado quando passar o mouse por cima (é opcional, pode ser deixado em branco)</li>
+              <li>No campo "Alvo" se escolhe se deseja abrir o link na mesma aba (opção "Nenhum") ou em uma aba diferente (opção "Nova Janela").</li>
+            </ul>
           </div>
         </aside>
 
