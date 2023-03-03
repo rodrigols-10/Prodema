@@ -146,15 +146,17 @@
         $link=false;
         if($docentes['curriculo']!="" && $docentes['curriculo']!=NULL && $docentes['curriculo']!="--" && $docentes['curriculo']!='0') $link = true;
         ?>
-        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row;align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
+        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row; flex-wrap:wrap; align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
+        <div style="display: flex;flex-direction: row; flex-wrap:nowrap; gap: 10px;">
           <figure class="info-img" title="imagem" alt="imagem">
-            <img src="../uploads/<?php if($docentes['foto']!=NULL && $docentes['foto']!="" && $docentes['foto']!='0')echo $docentes['foto']; else echo "docente-default.png"; ?>" style="width:60px;height: 60px;object-fit: cover;border-radius:3px">
-          </figure>
-          <div class="info-title">
-              <h2 style="margin-top:10px;font-size:0.9rem">
-              <?php if($link){?> <a class="docente-link"  href="<?php echo $docentes['curriculo']; ?>" target="_blank"> <?php echo $docentes['nome']."</a>"; } else echo $docentes['nome'];?>
-              </h2>
-          </div>
+              <img src="../uploads/<?php if($docentes['foto']!=NULL && $docentes['foto']!="" && $docentes['foto']!='0')echo $docentes['foto']; else echo "docente-default.png"; ?>" style="width:60px;height: 60px;object-fit: cover;border-radius:3px">
+            </figure>
+            <div class="info-title">
+                <h2 style="margin-top:10px;font-size:0.9rem">
+                <?php if($link){?> <a class="docente-link"  href="<?php echo $docentes['curriculo']; ?>" target="_blank"> <?php echo $docentes['nome']."</a>"; } else echo $docentes['nome'];?>
+                </h2>
+            </div>
+        </div>  
           <div style="display:flex;flex-wrap:wrap;margin-left:1rem">
             <?php
             if($docentes['objetivo']!=NULL && $docentes['objetivo']!="" && $docentes['objetivo']!='0'){
@@ -188,7 +190,8 @@
         $link=false;
         if($docentes['curriculo']!="" && $docentes['curriculo']!=NULL && $docentes['curriculo']!="--" && $docentes['curriculo']!='0') $link = true;
         ?>
-        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row;align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
+        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row; flex-wrap:wrap; align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
+        <div style="display: flex;flex-direction: row; flex-wrap:nowrap; gap: 10px;">
           <figure class="info-img" title="imagem" alt="imagem">
             <img src="../uploads/<?php if($docentes['foto']!=NULL && $docentes['foto']!="" && $docentes['foto']!='0')echo $docentes['foto']; else echo "docente-default.png"; ?>" style="width:60px;height: 60px;object-fit: cover;border-radius:3px">
           </figure>
@@ -197,6 +200,7 @@
               <?php if($link){?> <a class="docente-link"  href="<?php echo $docentes['curriculo']; ?>" target="_blank"> <?php echo $docentes['nome']."</a>"; } else echo $docentes['nome'];?>
               </h2>
           </div>
+        </div>
           <div style="display:flex;flex-wrap:wrap;margin-left:1rem">
             <?php
             if($docentes['objetivo']!=NULL && $docentes['objetivo']!="" && $docentes['objetivo']!='0'){
@@ -230,14 +234,16 @@
         $link=false;
         if($docentes['curriculo']!="" && $docentes['curriculo']!=NULL && $docentes['curriculo']!="--" && $docentes['curriculo']!='0') $link = true;
         ?>
-        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row;align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
-          <figure class="info-img" title="imagem" alt="imagem">
-            <img src="../uploads/<?php if($docentes['foto']!=NULL && $docentes['foto']!="" && $docentes['foto']!='0')echo $docentes['foto']; else echo "docente-default.png"; ?>" style="width:60px;height: 60px;object-fit: cover;border-radius:3px">
-          </figure>
-          <div class="info-title">
-              <h2 style="margin-top:10px;font-size:0.9rem">
-              <?php if($link){?> <a class="docente-link"  href="<?php echo $docentes['curriculo']; ?>" target="_blank"> <?php echo $docentes['nome']."</a>"; } else echo $docentes['nome'];?>
-              </h2>
+        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row; flex-wrap:wrap; align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
+          <div style="display: flex;flex-direction: row; flex-wrap:nowrap; gap: 10px;">
+            <figure class="info-img" title="imagem" alt="imagem">
+              <img src="../uploads/<?php if($docentes['foto']!=NULL && $docentes['foto']!="" && $docentes['foto']!='0')echo $docentes['foto']; else echo "docente-default.png"; ?>" style="width:60px;height: 60px;object-fit: cover;border-radius:3px">
+            </figure>
+            <div class="info-title">
+                <h2 style="margin-top:10px;font-size:0.9rem">
+                <?php if($link){?> <a class="docente-link"  href="<?php echo $docentes['curriculo']; ?>" target="_blank"> <?php echo $docentes['nome']."</a>"; } else echo $docentes['nome'];?>
+                </h2>
+            </div>
           </div>
           <div style="display:flex;flex-wrap:wrap;margin-left:1rem">
             <?php
@@ -272,7 +278,8 @@
         $link=false;
         if($docentes['curriculo']!="" && $docentes['curriculo']!=NULL && $docentes['curriculo']!="--" && $docentes['curriculo']!='0') $link = true;
         ?>
-        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row;align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
+        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row; flex-wrap:wrap; align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
+        <div style="display: flex;flex-direction: row; flex-wrap:nowrap; gap: 10px;">
           <figure class="info-img" title="imagem" alt="imagem">
             <img src="../uploads/<?php if($docentes['foto']!=NULL && $docentes['foto']!="" && $docentes['foto']!='0')echo $docentes['foto']; else echo "docente-default.png"; ?>" style="width:60px;height: 60px;object-fit: cover;border-radius:3px">
           </figure>
@@ -281,6 +288,7 @@
               <?php if($link){?> <a class="docente-link"  href="<?php echo $docentes['curriculo']; ?>" target="_blank"> <?php echo $docentes['nome']."</a>"; } else echo $docentes['nome'];?>
               </h2>
           </div>
+        </div>
           <div style="display:flex;flex-wrap:wrap;margin-left:1rem">
             <?php
             if($docentes['objetivo']!=NULL && $docentes['objetivo']!="" && $docentes['objetivo']!='0'){
@@ -314,14 +322,16 @@
         $link=false;
         if($docentes['curriculo']!="" && $docentes['curriculo']!=NULL && $docentes['curriculo']!="--" && $docentes['curriculo']!='0') $link = true;
         ?>
-        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row;align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
-          <figure class="info-img" title="imagem" alt="imagem">
-            <img src="../uploads/<?php if($docentes['foto']!=NULL && $docentes['foto']!="" && $docentes['foto']!='0')echo $docentes['foto']; else echo "docente-default.png"; ?>" style="width:60px;height: 60px;object-fit: cover;border-radius:3px">
-          </figure>
-          <div class="info-title">
-              <h2 style="margin-top:10px;font-size:0.9rem">
-              <?php if($link){?> <a class="docente-link"  href="<?php echo $docentes['curriculo']; ?>" target="_blank"> <?php echo $docentes['nome']."</a>"; } else echo $docentes['nome'];?>
-              </h2>
+        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row; flex-wrap:wrap; align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
+          <div style="display: flex;flex-direction: row; flex-wrap:nowrap; gap: 10px;">
+            <figure class="info-img" title="imagem" alt="imagem">
+              <img src="../uploads/<?php if($docentes['foto']!=NULL && $docentes['foto']!="" && $docentes['foto']!='0')echo $docentes['foto']; else echo "docente-default.png"; ?>" style="width:60px;height: 60px;object-fit: cover;border-radius:3px">
+            </figure>
+            <div class="info-title">
+                <h2 style="margin-top:10px;font-size:0.9rem">
+                <?php if($link){?> <a class="docente-link"  href="<?php echo $docentes['curriculo']; ?>" target="_blank"> <?php echo $docentes['nome']."</a>"; } else echo $docentes['nome'];?>
+                </h2>
+            </div>
           </div>
           <div style="display:flex;flex-wrap:wrap;margin-left:1rem">
             <?php
@@ -356,7 +366,8 @@
         $link=false;
         if($docentes['curriculo']!="" && $docentes['curriculo']!=NULL && $docentes['curriculo']!="--" && $docentes['curriculo']!='0') $link = true;
         ?>
-        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row;align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
+        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row; flex-wrap:wrap; align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
+        <div style="display: flex;flex-direction: row; flex-wrap:nowrap; gap: 10px;">
           <figure class="info-img" title="imagem" alt="imagem">
             <img src="../uploads/<?php if($docentes['foto']!=NULL && $docentes['foto']!="" && $docentes['foto']!='0')echo $docentes['foto']; else echo "docente-default.png"; ?>" style="width:60px;height: 60px;object-fit: cover;border-radius:3px">
           </figure>
@@ -365,6 +376,7 @@
               <?php if($link){?> <a class="docente-link"  href="<?php echo $docentes['curriculo']; ?>" target="_blank"> <?php echo $docentes['nome']."</a>"; } else echo $docentes['nome'];?>
               </h2>
           </div>
+        </div>  
           <div style="display:flex;flex-wrap:wrap;margin-left:1rem">
             <?php
             if($docentes['objetivo']!=NULL && $docentes['objetivo']!="" && $docentes['objetivo']!='0'){
@@ -398,7 +410,8 @@
         $link=false;
         if($docentes['curriculo']!="" && $docentes['curriculo']!=NULL && $docentes['curriculo']!="--" && $docentes['curriculo']!='0') $link = true;
         ?>
-        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row;align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
+        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row; flex-wrap:wrap; align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
+        <div style="display: flex;flex-direction: row; flex-wrap:nowrap; gap: 10px;">
           <figure class="info-img" title="imagem" alt="imagem">
             <img src="../uploads/<?php if($docentes['foto']!=NULL && $docentes['foto']!="" && $docentes['foto']!='0')echo $docentes['foto']; else echo "docente-default.png"; ?>" style="width:60px;height: 60px;object-fit: cover;border-radius:3px">
           </figure>
@@ -407,6 +420,7 @@
               <?php if($link){?> <a class="docente-link"  href="<?php echo $docentes['curriculo']; ?>" target="_blank"> <?php echo $docentes['nome']."</a>"; } else echo $docentes['nome'];?>
               </h2>
           </div>
+        </div>
           <div style="display:flex;flex-wrap:wrap;margin-left:1rem">
             <?php
             if($docentes['objetivo']!=NULL && $docentes['objetivo']!="" && $docentes['objetivo']!='0'){
@@ -440,7 +454,8 @@
         $link=false;
         if($docentes['curriculo']!="" && $docentes['curriculo']!=NULL && $docentes['curriculo']!="--" && $docentes['curriculo']!='0') $link = true;
         ?>
-        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row;align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
+        <div <?php if($link) echo "class='info-item'" ?> style="display: flex;flex-direction: row; flex-wrap:wrap; align-items: center;gap: 10px;margin-bottom: 0.6rem;text-decoration: none;color: black;padding:3px;">
+        <div style="display: flex;flex-direction: row; flex-wrap:nowrap; gap: 10px;">
           <figure class="info-img" title="imagem" alt="imagem">
             <img src="../uploads/<?php if($docentes['foto']!=NULL && $docentes['foto']!="" && $docentes['foto']!='0')echo $docentes['foto']; else echo "docente-default.png"; ?>" style="width:60px;height: 60px;object-fit: cover;border-radius:3px">
           </figure>
@@ -449,6 +464,7 @@
               <?php if($link){?> <a class="docente-link"  href="<?php echo $docentes['curriculo']; ?>" target="_blank"> <?php echo $docentes['nome']."</a>"; } else echo $docentes['nome'];?>
               </h2>
           </div>
+        </div>
           <div style="display:flex;flex-wrap:wrap;margin-left:1rem">
             <?php
             if($docentes['objetivo']!=NULL && $docentes['objetivo']!="" && $docentes['objetivo']!='0'){
@@ -509,9 +525,10 @@
           <div class="social">
             <h1><i class="fa-regular fa-thumbs-up"></i> Mídias Sociais</h1>
             <div>
-              <a href="https://www.facebook.com/prodemaufrn"><img src="../assets/icon_facebook.png" alt="ícone do Facebook"></a>
-              <a href="https://www.dropbox.com/sh/73fezju8dwsvja8/AADerxFRSEuf0PJIg115edK1a?dl=0"><img src="../assets/icon_dropbox.png" alt="ícone do Dropbox"></a>
-              <a href="https://sistemas.ufrn.br/gerenciadorportais/public/prodema/noticia/rss/"><img src="../assets/icon_rss.png" alt="ícone do RSS"></a>
+              <a style="color:white; font-size:2rem" href="https://www.facebook.com/profile.php?id=100088104321284" title="Página do Facebook"><i class="fa-brands fa-square-facebook"></i></a>
+              <a style="color:white; font-size:2rem" href="https://www.instagram.com/prodemadoutorado/" title="Página do Instagram"><i class="fa-brands fa-square-instagram"></i></a>
+              <a style="color:white; font-size:2rem" href="https://www.youtube.com/@doutoradoemdesenvolvimento8960" title="Página do Youtube"><i class="fa-brands fa-square-youtube"></i></a>
+              <a style="color:white; font-size:2rem" href="https://twitter.com/RedeProdema" title="Página do Twitter"><i class="fa-brands fa-square-twitter"></i></a>
             </div>
           </div>
           <div class="direitos">

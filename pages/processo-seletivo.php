@@ -131,8 +131,10 @@
       $exist = true;
         ?>
           <a class="info-item" href="processo-page.php?id=<?php echo $processos['id']?>" style="padding:6px 6px 0">
-            <div class="info-title">
-            <h2> <i class="fa-solid fa-angles-right" style="color:#4f210d;"></i> <?php echo $processos['titulo'] ?></h2>
+            <i class="fa-solid fa-angles-right" style="color:#4f210d;"></i>
+            <div class="info-title" style="padding:2px">
+              <h2 style="margin:0"><?php echo $processos['titulo'] ?></h2>
+              <p><i class="fa-regular fa-calendar"></i> <?php echo " Atualizado em " . date_format(new DateTime($processos['data']),'d.m.Y')?></p>
             </div>
           </a>
         <?php
@@ -178,9 +180,10 @@
           <div class="social">
             <h1><i class="fa-regular fa-thumbs-up"></i> Mídias Sociais</h1>
             <div>
-              <a href="https://www.facebook.com/prodemaufrn"><img src="../assets/icon_facebook.png" alt="ícone do Facebook"></a>
-              <a href="https://www.dropbox.com/sh/73fezju8dwsvja8/AADerxFRSEuf0PJIg115edK1a?dl=0"><img src="../assets/icon_dropbox.png" alt="ícone do Dropbox"></a>
-              <a href="https://sistemas.ufrn.br/gerenciadorportais/public/prodema/noticia/rss/"><img src="../assets/icon_rss.png" alt="ícone do RSS"></a>
+              <a style="color:white; font-size:2rem" href="https://www.facebook.com/profile.php?id=100088104321284" title="Página do Facebook"><i class="fa-brands fa-square-facebook"></i></a>
+              <a style="color:white; font-size:2rem" href="https://www.instagram.com/prodemadoutorado/" title="Página do Instagram"><i class="fa-brands fa-square-instagram"></i></a>
+              <a style="color:white; font-size:2rem" href="https://www.youtube.com/@doutoradoemdesenvolvimento8960" title="Página do Youtube"><i class="fa-brands fa-square-youtube"></i></a>
+              <a style="color:white; font-size:2rem" href="https://twitter.com/RedeProdema" title="Página do Twitter"><i class="fa-brands fa-square-twitter"></i></a>
             </div>
           </div>
           <div class="direitos">

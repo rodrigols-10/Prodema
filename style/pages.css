@@ -176,7 +176,8 @@ article{
         flex-wrap: wrap;
         row-gap: 10px;
         column-gap:0;
-        margin: 1rem 3%;
+        padding: 0;
+        /* margin: 1rem 3%; */
     }
     .info-col1{
         position: relative;

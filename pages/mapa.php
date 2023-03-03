@@ -49,6 +49,17 @@
         color: black;
         background-color: rgb(228, 236, 240);
       }
+
+      #mapbox{
+        width:100%;
+        height:600px;
+        margin-bottom: 20px;
+      }
+
+      #mapbox iframe{
+        width:100%;
+        height:100%;
+      }
     </style>
 </head>
 <body>
@@ -144,34 +155,8 @@
             <div class="title-emphasis">
                 <h1>MAPA DOS EGRESSOS</h1>
             </div>                
-            <div style="background-color: white; border-radius: 10px; width: 100%; padding: 3px; margin: 10px auto 10px auto; overflow: auto;">
-                <!-- <canvas width="100%" id="canvas">
-                </canvas> -->
-                <svg width="1000px" height="556px" style="display:block; position:relative; margin: 0 auto">
-                  <g>
-                    <image xlink:href="../assets/mapa.png" alt="Mapa Mundi" width="1000px" height="556px" x="0px" y="0px"></image>
-                  </g>
-<?php
-  include('../manager/connection.php');
-
-    $sql_code = "SELECT * FROM egressos";
-    $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição");
-      
-      while($egressos = $sql_query->fetch_assoc()){
-    ?>
-
-                  <g id="item<?php echo $egressos['id'] ?>" stroke="rgba(20,100,255,0.8)" fill="white" stroke-width="5">
-                      <text id="info<?php echo $egressos['id']?>" style="display:none" x="0" y="0"><?php echo $egressos['informacao'] ?></text>
-                      <circle id="ponto<?php echo $egressos['id'] ?>" class="point" cx="<?php echo $egressos['cx'] ?>px" cy="<?php echo $egressos['cy'] ?>px" r="5px" onclick="showGraduates('<?php echo $egressos['nome'] ?>','<?php echo $egressos['regiao'] ?>','<?php echo $egressos['link'] ?>','<?php echo $egressos['id'] ?>')"/>
-                  </g>
-<?php } ?>
-              </svg>
-              <div id="back-info" onclick="desappearInfo()">
-              <!-- FUNDO ESCURO -->
-              </div>
-              <div id="information">
-                  <!-- MENSAGEM -->
-              </div>
+            <div id="mapbox" style="background-color: white;">
+              <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1qwxIWPaRJh-xZsYxIc3JrFI4p1jlxqI&ehbc=2E312F"></iframe>
             </div>
           </section>
              
@@ -202,9 +187,10 @@
           <div class="social">
             <h1><i class="fa-regular fa-thumbs-up"></i> Mídias Sociais</h1>
             <div>
-              <a href="https://www.facebook.com/prodemaufrn"><img src="../assets/icon_facebook.png" alt="ícone do Facebook"></a>
-              <a href="https://www.dropbox.com/sh/73fezju8dwsvja8/AADerxFRSEuf0PJIg115edK1a?dl=0"><img src="../assets/icon_dropbox.png" alt="ícone do Dropbox"></a>
-              <a href="https://sistemas.ufrn.br/gerenciadorportais/public/prodema/noticia/rss/"><img src="../assets/icon_rss.png" alt="ícone do RSS"></a>
+              <a style="color:white; font-size:2rem" href="https://www.facebook.com/profile.php?id=100088104321284" title="Página do Facebook"><i class="fa-brands fa-square-facebook"></i></a>
+              <a style="color:white; font-size:2rem" href="https://www.instagram.com/prodemadoutorado/" title="Página do Instagram"><i class="fa-brands fa-square-instagram"></i></a>
+              <a style="color:white; font-size:2rem" href="https://www.youtube.com/@doutoradoemdesenvolvimento8960" title="Página do Youtube"><i class="fa-brands fa-square-youtube"></i></a>
+              <a style="color:white; font-size:2rem" href="https://twitter.com/RedeProdema" title="Página do Twitter"><i class="fa-brands fa-square-twitter"></i></a>
             </div>
           </div>
           <div class="direitos">

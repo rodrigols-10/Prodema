@@ -171,9 +171,9 @@
                                         <div style="display:flex;flex-direction:column;background-color:white;margin: 0 10px">
                                             <label>Área:</label>
                                             <select name="area" style="height:30px;padding:1px 2px">
-                                                <option value="Normas e Resoluções" selected>Normas e Resoluções</option>
+                                                <option value="Normas e Resolucoes" selected>Normas e Resoluções</option>
                                                 <option value="Oferta de Disciplinas">Oferta de Disciplinas</option>
-                                                <option value="Portarias e Ofícios">Portarias e Ofícios</option>
+                                                <option value="Portarias e Oficios">Portarias e Ofícios</option>
                                                 <option value="Processo seletivo">Processo seletivo</option>
                                                 <option value="Regimento Interno">Regimento Interno</option>
                                             </select>
@@ -208,9 +208,9 @@
                                         <div style="display:flex;flex-direction:column;background-color:white;margin: 0 10px">
                                             <label>Área:</label>
                                             <select name="area" style="height:30px;padding:1px 2px">
-                                                <option value="Normas e Resoluções"  ${area=='Normas e Resoluções' ? "selected" : ""}>Normas e Resoluções</option>
+                                                <option value="Normas e Resolucoes"  ${area=='Normas e Resoluções' ? "selected" : ""}>Normas e Resoluções</option>
                                                 <option value="Oferta de Disciplinas"  ${area=='Oferta de Disciplinas' ? "selected" : ""}>Oferta de Disciplinas</option>
-                                                <option value="Portarias e Ofícios"  ${area=='Portarias e Ofícios' ? "selected" : ""}>Portarias e Ofícios</option>
+                                                <option value="Portarias e Oficios"  ${area=='Portarias e Ofícios' ? "selected" : ""}>Portarias e Ofícios</option>
                                                 <option value="Processo seletivo"  ${area=='Processo seletivo' ? "selected" : ""}>Processo seletivo</option>
                                                 <option value="Regimento Interno"  ${area=='Regimento Interno' ? "selected" : ""}>Regimento Interno</option>
                                             </select>

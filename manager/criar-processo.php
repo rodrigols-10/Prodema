@@ -140,7 +140,7 @@
               <textarea name="titulo" id="titulo-input" rows="3" cols="50" onchange="document.querySelector('#titulo-output').innerHTML = document.querySelector('#titulo-input').value;" onkeydown="javascript: return PreventEnterSubmit(event)" required></textarea>
             </div>
             <div class="fields">
-              <label>Fim: <span style="color:blue;font-size:0.6rem"> *Isto define até quando o processo ficará em destaque</span></label>
+              <label>Término: <span style="color:blue;font-size:0.6rem"> *Isto definirá até quando o processo ficará em destaque</span></label>
               <input type="datetime-local" name="fim" value="" required>
             </div>
             <div class="fields">

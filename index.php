@@ -198,7 +198,7 @@
             <?php
     include('manager/connection.php');
 
-    $sql_code = "SELECT `id`,`titulo`,`fim` FROM processos ORDER BY fim DESC LIMIT 4";
+    $sql_code = "SELECT `id`,`titulo`,`data` FROM processos ORDER BY `data` DESC LIMIT 4";
     $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
     $count=1;
     $buttonVisible = 'hidden';
@@ -206,11 +206,11 @@
       if($count < 4){
         ?>
           <a class="info-item" href="pages/processo-page.php?id=<?php echo $processos['id']?>">
-          <i class="fa-solid fa-angles-right" style="color:#4f210d;"></i>
-          <div class="info-title" style="padding:2px">
-            <h2 style="margin:0"><?php echo $processos['titulo'] ?></h2>
-            <p><i class="fa-regular fa-calendar"></i> <?php echo " Termina em " . date_format(new DateTime($processos['fim']),'d.m.Y')?></p>
-          </div>
+            <i class="fa-solid fa-angles-right" style="color:#4f210d;"></i>
+            <div class="info-title" style="padding:2px">
+              <h2 style="margin:0"><?php echo $processos['titulo'] ?></h2>
+              <p><i class="fa-regular fa-calendar"></i> <?php echo " Atualizado em " . date_format(new DateTime($processos['data']),'d.m.Y')?></p>
+            </div>
           </a>
         <?php
       } else {
@@ -365,10 +365,10 @@
           <div class="social">
             <h1><i class="fa-regular fa-thumbs-up"></i> Mídias Sociais</h1>
             <div>
-              <a href="https://www.facebook.com/profile.php?id=100088104321284"><img src="assets/icon_facebook.png" alt="ícone do Facebook"></a>
-              <a href="https://www.instagram.com/prodemadoutorado/"><img src="assets/icon_instagram.png" alt="ícone do Instagram"></a>
-              <a href="https://www.youtube.com/@doutoradoemdesenvolvimento8960"><img src="assets/icon_youtube.png" alt="ícone do Youtube"></a>
-              <a href="https://twitter.com/RedeProdema"><img src="assets/icon_twitter.png" alt="ícone do Twitter"></a>
+              <a style="color:white; font-size:2rem" href="https://www.facebook.com/profile.php?id=100088104321284" title="Página do Facebook"><i class="fa-brands fa-square-facebook"></i></a>
+              <a style="color:white; font-size:2rem" href="https://www.instagram.com/prodemadoutorado/" title="Página do Instagram"><i class="fa-brands fa-square-instagram"></i></a>
+              <a style="color:white; font-size:2rem" href="https://www.youtube.com/@doutoradoemdesenvolvimento8960" title="Página do Youtube"><i class="fa-brands fa-square-youtube"></i></a>
+              <a style="color:white; font-size:2rem" href="https://twitter.com/RedeProdema" title="Página do Twitter"><i class="fa-brands fa-square-twitter"></i></a>
             </div>
           </div>
           <div class="direitos">
