@@ -143,6 +143,9 @@
       }
       $count++;
     }
+    if ($count == 1) {
+      echo "<p>Não há notícias no momento</p>";
+    }
 ?>
               </div>
               <a style="visibility:<?php echo $buttonVisible ?>" class="btn btn-sm btn-outline-primary ver-mais" href="pages/noticias.php">Ver mais...</a>
@@ -179,27 +182,49 @@
       }
       $count++;
     }
+    if ($count == 1) {
+      echo "<p>Não há eventos no momento</p>";
+    }
 ?>
-                <a style="visibility:<?php echo $buttonVisible ?>" class="info-item" href="pages/evento-page1.html">
-                  <figure class="info-img" title="imagem" alt="imagem">
-                    <img src="uploads/evento1.jpg" style="width:100px;height: 100px;object-fit: cover;">
-                  </figure>
-                  <div class="info-title">
-                    <h2>IV CURSO DE INTRODUÇÃO A ESTUDOS COM PEQUENOS MAMÍFEROS.</h2>
-                    <p><i class="fa-regular fa-calendar"></i> 09.dez.2022 a 12.dez.2022</p>
-                  </div>
-                </a>
-                
-              </div>
-              <a class="btn btn-sm btn-outline-primary ver-mais disabled" href="pages/eventos.php">Ver mais...</a>
-            </div>
+          </div>
+              <a style="visibility:<?php echo $buttonVisible ?>" class="btn btn-sm btn-outline-primary ver-mais" href="pages/eventos.php">Ver mais...</a>
+          </div>
         </section>
         <!-- PROCESSOS SELETIVOS E DISCIPLINAS -->
         <section class="info">
           <div class="info-col1">
             <h1>Processos Seletivos</h1>
             <div id="processos">
-              <p>Não há processos seletivos no momento</p>
+            <?php
+    include('manager/connection.php');
+
+    $sql_code = "SELECT `id`,`titulo`,`fim` FROM processos ORDER BY fim DESC LIMIT 4";
+    $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
+    $count=1;
+    $buttonVisible = 'hidden';
+    while($processos = $sql_query->fetch_assoc()){
+      if($count < 4){
+        ?>
+          <a class="info-item" href="pages/processo-page.php?id=<?php echo $processos['id']?>">
+          <i class="fa-solid fa-angles-right" style="color:#4f210d;"></i>
+          <div class="info-title" style="padding:2px">
+            <h2 style="margin:0"><?php echo $processos['titulo'] ?></h2>
+            <p><i class="fa-regular fa-calendar"></i> <?php echo " Termina em " . date_format(new DateTime($processos['fim']),'d.m.Y')?></p>
+          </div>
+          </a>
+        <?php
+      } else {
+        $buttonVisible = 'visible';
+      }
+      $count++;
+    }
+    if ($count == 1) {
+      echo "<p>Não há processos seletivos no momento</p>";
+    }
+?>
+          </div>
+              <a style="visibility:<?php echo $buttonVisible ?>" class="btn btn-sm btn-outline-primary ver-mais" href="pages/processo-seletivo.php">Ver mais...</a>
+          </div>
             </div>
             
           </div>
