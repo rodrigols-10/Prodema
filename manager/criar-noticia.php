@@ -22,6 +22,23 @@
         }
       }
   }
+  function uploadFile($tmpName,$filename){
+    $userMessage = "";
+    //var_dump($_FILES['banner']);
+    $folder = "../documents/";
+    $sendFile = move_uploaded_file($tmpName, $folder . $filename);
+
+    if($sendFile){
+      $userMessage = "Arquivo enviado com sucesso!";
+
+      return true;
+      
+    } else {
+      $userMessage = "Falha ao enviar arquivo";
+      return false;
+    }
+    // }
+  }
     
     $userMessage = "";
     if(isset($_POST['titulo']) && $_POST['titulo']){
@@ -59,6 +76,9 @@
         $sizeX = "size" . $pos;
         $legendX = "legend" . $pos;
         $conteudoX = "conteudo" . $pos;
+        $documentoX = "documento" . $pos;
+        $nameDoc = "nameDoc" . $pos;
+
         if(isset($_FILES[$imagemX])){
           $tmpimg = $_FILES[$imagemX]['tmp_name'];
           $imgName = $_FILES[$imagemX]['name'];
@@ -96,6 +116,31 @@
           $tratamento = str_replace("'", "\'", $tratamento);
           $tratamento = str_replace('"', '\"', $tratamento);
           $conteudo = $conteudo . $tratamento;
+
+        } elseif (isset($_FILES[$documentoX])) {
+          $tmpimg = $_FILES[$documentoX]['tmp_name'];
+          $fileName = $_FILES[$documentoX]['name'];
+          $success = uploadFile($tmpimg, $fileName);
+          if ($success){
+            //Registrando documento no banco de dados
+            $tratamento = $fileName; //tratando o texto do documento para evitar erros
+            $tratamento = str_replace("’", "\'", $tratamento);
+            $tratamento = str_replace("'", "\'", $tratamento);
+            $tratamento = str_replace('"', '\"', $tratamento);
+            $fileName = $tratamento;
+            $tratamento = $_POST[$nameDoc];
+            $tratamento = str_replace("’", "\'", $tratamento);
+            $tratamento = str_replace("'", "\'", $tratamento);
+            $tratamento = str_replace('"', '\"', $tratamento);
+            $sql_code = "INSERT INTO documentos (nome, arquivo, area) VALUES ('$tratamento', '$fileName', 'Processo seletivo')";
+            $sql_query = $mysqli->query($sql_code) or die("<p>Falha na operação</p>");
+            if ($sql_query) {
+            }else{
+                echo "Error: ".mysqli_error($mysqli);  
+            }
+            
+            $conteudo = $conteudo . "<br><a href=\'../documents/$fileName\' target=\'_blank\' rel=\'noopener noreferrer\' style=\'text-decoration: none;\'> $tratamento </a><br>";
+          }
         } else {
           $stop = true;
         }
@@ -176,7 +221,8 @@
             <div id="added-fields" class="fields">
             </div>
             <div id="add-fields">
-              <button class="btn btn-sm btn-secondary" type="button" onclick="addImgForm()"><i class="fa-solid fa-plus"></i> Adicionar Imagem</button>
+              <button class="btn btn-sm btn-secondary" type="button" onclick="addImgForm()"><i class="fa-solid fa-plus"></i> Imagem</button>
+              <button class="btn btn-sm btn-secondary" type="button" onclick="addDocForm()"><i class="fa-solid fa-plus"></i> Documento</button>
             </div>
             <div class="form-buttons">
                 <input class="btn btn-sm btn-success" type="submit" value="Submit">
@@ -211,13 +257,13 @@
             <!-- BANNER AQUI -->
           </div>
           <div id="conteudo-output">
-          <div id="legenda-output" style="text-align:center">
-            
-          </div>
-          <div id="texto1-output">
-            <p>Corpo da notícia aqui</p>
-          </div>
-            <!-- CONTEÚDO EXTRA AQUI -->
+            <div id="legenda-output" style="text-align:center">
+              
+            </div>
+            <div id="texto1-output">
+              <p>Corpo da notícia aqui</p>
+            </div>
+              <!-- CONTEÚDO EXTRA AQUI -->
           </div>
         </article>
       </section>
@@ -308,12 +354,30 @@
               </div>`)
         document.querySelector('#added-fields').insertAdjacentHTML( 'beforeEnd', addedFormContent[totalContent]);
         document.querySelector('#add-fields').innerHTML =`
-        <button class="btn btn-sm btn-secondary" type="button" onclick="addImgForm()"><i class="fa-solid fa-plus"></i> Adicionar Imagem</button>
-        <button class="btn btn-sm btn-secondary" type="button" onclick="addTextForm()"><i class="fa-solid fa-plus"></i> Adicionar Texto</button>
+        <button class="btn btn-sm btn-secondary" type="button" onclick="addImgForm()"><i class="fa-solid fa-plus"></i> Imagem</button>
+        <button class="btn btn-sm btn-secondary" type="button" onclick="addTextForm()"><i class="fa-solid fa-plus"></i> Texto</button>
+        <button class="btn btn-sm btn-secondary" type="button" onclick="addDocForm()"><i class="fa-solid fa-plus"></i> Documento</button>
         `;
 
         document.querySelector('#conteudo-output').insertAdjacentHTML('beforeEnd', `<div id='img${totalContent}'></div>`);
         widthNow[totalContent] = '';
+        totalContent++;
+      }
+      const addDocForm = function(){
+        addedFormContent.push(`<div class="fields" style="max-width:373px; padding: 3px; border: 1px dashed #000">
+                <label>Adicionar documento na sequência: </label>
+                <input class="line" type="file" name="documento${totalContent}" id="documento${totalContent}" onchange="AddingDoc(${totalContent})" accept=".xlsx,.xls,.doc,.docx,.ppt,.pptx,.txt,.pdf" required>
+                <label>Nome a ser exibido:</label>
+                <input style="width:100%" type="text" name="nameDoc${totalContent}" onchange="AddingDoc(${totalContent})" onkeydown="javascript: return PreventEnterSubmit(event)" required>
+              </div>`)
+        document.querySelector('#added-fields').insertAdjacentHTML( 'beforeEnd', addedFormContent[totalContent]);
+        document.querySelector('#add-fields').innerHTML =`
+        <button class="btn btn-sm btn-secondary" type="button" onclick="addTextForm()"><i class="fa-solid fa-plus"></i> Texto</button>
+        <button class="btn btn-sm btn-secondary" type="button" onclick="addImgForm()"><i class="fa-solid fa-plus"></i> Imagem</button>
+        <button class="btn btn-sm btn-secondary" type="button" onclick="addDocForm()"><i class="fa-solid fa-plus"></i> Documento</button>
+        `;
+
+        document.querySelector('#conteudo-output').insertAdjacentHTML('beforeEnd', `<div id='doc${totalContent}'></div>`);
         totalContent++;
       }
 
@@ -324,7 +388,8 @@
             </div>`);
         document.querySelector('#added-fields').insertAdjacentHTML( 'beforeEnd', addedFormContent[totalContent]);
         document.querySelector('#add-fields').innerHTML =`
-        <button class="btn btn-sm btn-secondary" type="button" onclick="addImgForm()"><i class="fa-solid fa-plus"></i> Adicionar Imagem</button>
+        <button class="btn btn-sm btn-secondary" type="button" onclick="addImgForm()"><i class="fa-solid fa-plus"></i> Imagem</button>
+        <button class="btn btn-sm btn-secondary" type="button" onclick="addDocForm()"><i class="fa-solid fa-plus"></i> Documento</button>
         `;
         document.querySelector('#conteudo-output').insertAdjacentHTML('beforeEnd', `<div id='content${totalContent}'></div>`);
         totalContent++;
@@ -404,6 +469,23 @@
             document.querySelector("#img"+position).insertAdjacentHTML( 'beforeEnd', "<br> <p>"+imgLegend+"</p>");
           });        
           reader.readAsDataURL(file);
+        }
+      }
+
+      const AddingDoc = function(position){
+        const selectInput = "#documento"+position;
+        const selectOutput = "#doc"+position;
+        const file = document.querySelector(selectInput).files[0];
+        let nameDoc = document.querySelector("input[name='nameDoc"+position+"']").value;
+        if (file) {
+          const docElement = document.createElement("a");
+          docElement.href = "#";
+          docElement.target="_blank";
+          docElement.rel="noopener noreferrer";
+          docElement.innerHTML = nameDoc;
+          docElement.style.textDecoration = "none";
+          document.querySelector(selectOutput).innerHTML = "";
+          document.querySelector(selectOutput).appendChild(docElement);
         }
       }
 
