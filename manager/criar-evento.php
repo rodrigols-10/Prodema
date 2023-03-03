@@ -34,13 +34,32 @@
           $bannerName = 'default.png';
         }
       }
-      $titulo = $_POST['titulo'];
+      $tratamento = $_POST['titulo'];//tratando o texto do documento para evitar erros com ' " e ’
+      $tratamento = str_replace("’", "\'", $tratamento);
+      $tratamento = str_replace("'", "\'", $tratamento);
+      $tratamento = str_replace('"', '\"', $tratamento);
+      $titulo = $tratamento;
       $inicio = $_POST['inicio'];
       $fim = $_POST['fim'];
       $horario = $_POST['horario'];
-      $inscricoes = $_POST['inscricoes'];
-      $conteudo = "<div style=\'text-align:center\'><p>" . $_POST['bannerlegend'] . "</p></div>";
-      $conteudo = $conteudo . "<div>" . $_POST['conteudo'] . "</div>";
+
+      $tratamento = $_POST['inscricoes'];//tratando o texto do documento para evitar erros com ' " e ’
+      $tratamento = str_replace("’", "\'", $tratamento);
+      $tratamento = str_replace("'", "\'", $tratamento);
+      $tratamento = str_replace('"', '\"', $tratamento);
+      $inscricoes = $tratamento;
+
+      $tratamento = $_POST['bannerlegend'];//tratando o texto do documento para evitar erros com ' " e ’
+      $tratamento = str_replace("’", "\'", $tratamento);
+      $tratamento = str_replace("'", "\'", $tratamento);
+      $tratamento = str_replace('"', '\"', $tratamento);
+      $conteudo = "<div style=\'text-align:center\'><p>" . $tratamento . "</p></div>";
+
+      $tratamento = $_POST['conteudo'];//tratando o texto do documento para evitar erros com ' " e ’
+      $tratamento = str_replace("’", "\'", $tratamento);
+      $tratamento = str_replace("'", "\'", $tratamento);
+      $tratamento = str_replace('"', '\"', $tratamento);
+      $conteudo = $conteudo . "<div>" . $tratamento . "</div>";
       // echo $conteudo;
       $stop = false;
       $pos = 0;
@@ -59,33 +78,48 @@
             if($finalSize == "") {$finalSize = "100%";} //Corrigir largura se estiver vazia.
             else {$finalSize = $finalSize . "px";}      //adicionando unidade de pixels à largura.
 
+            $tratamento = $_POST[$legendX];//tratando o texto do documento para evitar erros com ' " e ’
+            $tratamento = str_replace("’", "\'", $tratamento);
+            $tratamento = str_replace("'", "\'", $tratamento);
+            $tratamento = str_replace('"', '\"', $tratamento);
+
             switch ($_POST[$positionX]) {
               case 1:
-                $conteudo = $conteudo . "<div style=\'width: 100%; float: none; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<div style=\'width: 100%; float: none; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%\'><br> <p>" . $tratamento . "</p></div>";
                 break;
               case 2:
-                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;float: left} @media (max-width: 800px){ .imgsize$pos{width:100%;float: none} }</style><div class=\'imgsize$pos\' style=\'text-align: center; margin: 0px 1rem 0px 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%;\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;float: left} @media (max-width: 800px){ .imgsize$pos{width:100%;float: none} }</style><div class=\'imgsize$pos\' style=\'text-align: center; margin: 0px 1rem 0px 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%;\'><br> <p>" . $tratamento . "</p></div>";
                 break;
               case 3:
-                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;float: right; margin: 0px 0px 0px 1rem;} @media (max-width: 800px){ .imgsize$pos{width:100%;float: none;margin:0} }</style><div class=\'imgsize$pos\' style=\'text-align: center;\'><img src=\'../uploads/$imgName\' style=\'width: 100%;\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;float: right; margin: 0px 0px 0px 1rem;} @media (max-width: 800px){ .imgsize$pos{width:100%;float: none;margin:0} }</style><div class=\'imgsize$pos\' style=\'text-align: center;\'><img src=\'../uploads/$imgName\' style=\'width: 100%;\'><br> <p>" . $tratamento . "</p></div>";
                 break;
               case 4:
-                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;} @media (max-width: 800px){ .imgsize$pos{width:100%;} }</style><div style=\'width: 100%; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' class=\'imgsize$pos\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;} @media (max-width: 800px){ .imgsize$pos{width:100%;} }</style><div style=\'width: 100%; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' class=\'imgsize$pos\'><br> <p>" . $tratamento . "</p></div>";
                 break;
               default:
-                $conteudo = $conteudo . "<div style=\'width: 100%; float: none; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<div style=\'width: 100%; float: none; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%\'><br> <p>" . $tratamento . "</p></div>";
                 break;
             }
           }
         } elseif (isset($_POST[$conteudoX])) {
-          $conteudo = $conteudo . $_POST[$conteudoX];
+          $tratamento = $_POST[$conteudoX];//tratando o texto do documento para evitar erros com ' " e ’
+          $tratamento = str_replace("’", "\'", $tratamento);
+          $tratamento = str_replace("'", "\'", $tratamento);
+          $tratamento = str_replace('"', '\"', $tratamento);
+          $conteudo = $conteudo . $tratamento;
         } else {
           $stop = true;
         }
         $pos = $pos + 1;
       }
       $pos = 0;
-  
+
+      $tratamento = $bannerName;//tratando o texto do documento para evitar erros com ' " e ’
+      $tratamento = str_replace("’", "\'", $tratamento);
+      $tratamento = str_replace("'", "\'", $tratamento);
+      $tratamento = str_replace('"', '\"', $tratamento);
+      $bannerName = $tratamento;
+
       $sql_code = "INSERT INTO eventos (titulo, banner, conteudo, inicio, fim, horario, inscricoes) VALUES ('$titulo', '$bannerName', '$conteudo', '$inicio', '$fim', '$horario', '$inscricoes')";
       $sql_query = $mysqli->query($sql_code) or die("<p>Falha na operação</p>");
       if ($sql_query) {
@@ -104,7 +138,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prodema - Criar Notícia</title>
+    <title>Prodema Doutorado | Criar Evento</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/main.css">

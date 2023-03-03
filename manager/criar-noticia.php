@@ -34,9 +34,22 @@
           $bannerName = 'default.png';
         }
       }
-      $titulo = $_POST['titulo'];
-      $conteudo = "<div style=\'text-align:center\'><p>" . $_POST['bannerlegend'] . "</p></div>";
-      $conteudo = $conteudo . "<div>" . $_POST['conteudo'] . "</div>";
+      //tratamento de texto para evitar erros no registro
+      $tratamento = $_POST['titulo'];
+      $tratamento = str_replace("’", "\'", $tratamento);
+      $tratamento = str_replace("'", "\'", $tratamento);
+      $tratamento = str_replace('"', '\"', $tratamento);
+      $titulo = $tratamento;
+      $tratamento = $_POST['bannerlegend'];
+      $tratamento = str_replace("’", "\'", $tratamento);
+      $tratamento = str_replace("'", "\'", $tratamento);
+      $tratamento = str_replace('"', '\"', $tratamento);
+      $conteudo = "<div style=\'text-align:center\'><p>" . $tratamento . "</p></div>";
+      $tratamento = $_POST['conteudo'];
+      $tratamento = str_replace("’", "\'", $tratamento);
+      $tratamento = str_replace("'", "\'", $tratamento);
+      $tratamento = str_replace('"', '\"', $tratamento);
+      $conteudo = $conteudo . "<div>" . $tratamento . "</div>";
       echo $conteudo;
       $stop = false;
       $pos = 0;
@@ -55,26 +68,34 @@
             if($finalSize == "") {$finalSize = "100%";} //Corrigir largura se estiver vazia.
             else {$finalSize = $finalSize . "px";}      //adicionando unidade de pixels à largura.
 
+            $tratamento = $_POST[$legendX];
+            $tratamento = str_replace("’", "\'", $tratamento);
+            $tratamento = str_replace("'", "\'", $tratamento);
+            $tratamento = str_replace('"', '\"', $tratamento);
             switch ($_POST[$positionX]) {
               case 1:
-                $conteudo = $conteudo . "<div style=\'width: 100%; float: none; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<div style=\'width: 100%; float: none; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%\'><br> <p>" . $tratamento . "</p></div>";
                 break;
               case 2:
-                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;float: left} @media (max-width: 800px){ .imgsize$pos{width:100%;float: none} }</style><div class=\'imgsize$pos\' style=\'text-align: center; margin: 0px 1rem 0px 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%;\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;float: left} @media (max-width: 800px){ .imgsize$pos{width:100%;float: none} }</style><div class=\'imgsize$pos\' style=\'text-align: center; margin: 0px 1rem 0px 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%;\'><br> <p>" . $tratamento . "</p></div>";
                 break;
               case 3:
-                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;float: right; margin: 0px 0px 0px 1rem;} @media (max-width: 800px){ .imgsize$pos{width:100%;float: none;margin:0} }</style><div class=\'imgsize$pos\' style=\'text-align: center;\'><img src=\'../uploads/$imgName\' style=\'width: 100%;\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;float: right; margin: 0px 0px 0px 1rem;} @media (max-width: 800px){ .imgsize$pos{width:100%;float: none;margin:0} }</style><div class=\'imgsize$pos\' style=\'text-align: center;\'><img src=\'../uploads/$imgName\' style=\'width: 100%;\'><br> <p>" . $tratamento . "</p></div>";
                 break;
               case 4:
-                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;} @media (max-width: 800px){ .imgsize$pos{width:100%;} }</style><div style=\'width: 100%; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' class=\'imgsize$pos\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<style> .imgsize$pos{width:$finalSize;} @media (max-width: 800px){ .imgsize$pos{width:100%;} }</style><div style=\'width: 100%; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' class=\'imgsize$pos\'><br> <p>" . $tratamento . "</p></div>";
                 break;
               default:
-                $conteudo = $conteudo . "<div style=\'width: 100%; float: none; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%\'><br> <p>" . $_POST[$legendX] . "</p></div>";
+                $conteudo = $conteudo . "<div style=\'width: 100%; float: none; text-align: center; margin: 0px;\'><img src=\'../uploads/$imgName\' style=\'width:100%\'><br> <p>" . $tratamento . "</p></div>";
                 break;
             }
           }
         } elseif (isset($_POST[$conteudoX])) {
-          $conteudo = $conteudo . $_POST[$conteudoX];
+          $tratamento = $_POST[$conteudoX];
+          $tratamento = str_replace("’", "\'", $tratamento);
+          $tratamento = str_replace("'", "\'", $tratamento);
+          $tratamento = str_replace('"', '\"', $tratamento);
+          $conteudo = $conteudo . $tratamento;
         } else {
           $stop = true;
         }
@@ -100,7 +121,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prodema - Criar Notícia</title>
+    <title>Prodema Doutorado | Criar Notícia</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/main.css">

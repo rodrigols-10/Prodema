@@ -4,63 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prodema Doutorado | Mapa</title>
+    <title>Prodema Doutorado | Processos Seletivos</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/main.css">
     <script src="https://kit.fontawesome.com/6354a31a3b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style/pages.css">
-    <style>
-      #back-info{
-        display: none;
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left:0;
-        background-color: rgba(117, 117, 117, 0.5);
-      }
-      #information{
-        display: none;
-        position: fixed;
-        max-width: 400px;
-        min-height: 180px;
-        padding: 2rem;
-        border-radius: 10px;
-        background-color: white;
-        top: 50vh;
-        left: 50vw;
-        transform: translate(-50%,-50%);
-        text-align: center;
-      }
-      .point{
-        r: 5px;
-        stroke-width: 5px;
-        transition: all 0.5s;
-      }
-      .point:hover {
-        r: 7px;
-        stroke-width: 7px;
-      }
-      .onhover{
-        color: black;
-      }
-      .onhover:hover{
-        color: black;
-        background-color: rgb(228, 236, 240);
-      }
-
-      #mapbox{
-        width:100%;
-        height:600px;
-        margin-bottom: 20px;
-      }
-
-      #mapbox iframe{
-        width:100%;
-        height:100%;
-      }
-    </style>
 </head>
 <body>
   <header id="header_top" class="page">
@@ -128,7 +77,7 @@
                     <a class="nav-link" href="mapa.php">Egressos</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <button class="nav-link">Comunicação<i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
+                  <button class="nav-link">Comunicação <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
                   <!-- DROPDOWN -->
                   <div class="dropdown-content" style="visibility:hidden">
                       <a href="noticias.php">Notícias</a>
@@ -151,15 +100,57 @@
         </nav>
   </header>
     <main>
-        <section>
-            <div class="title-emphasis">
-                <h1>MAPA DOS EGRESSOS</h1>
-            </div>                
-            <div id="mapbox" style="background-color: white;">
-              <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1qwxIWPaRJh-xZsYxIc3JrFI4p1jlxqI&ehbc=2E312F"></iframe>
+      <section class="info">
+        <article class="info-col1">
+          <div class="title-emphasis">
+            <h1>PROCESSOS SELETIVOS</h1>
+          </div>
+<?php
+    include('../manager/connection.php'); 
+
+    $sql_code = "SELECT `id`,`titulo`,`data`,`fim` FROM processos ORDER BY fim DESC";
+    $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
+    date_default_timezone_set('America/Recife');
+    $status = "first";
+    $exist = false;
+    while($processos = $sql_query->fetch_assoc()){
+      //if($exist == false) dentro do while vai executar apenas uma vez
+      if($exist == false) echo "<div class='title-emphasis subtitle'><h1><span style='font-size: medium;'><strong><span>PROCESSOS SELETIVOS EM VIGOR</span></strong></span></h1></div>";
+      if($status == "inforce"){
+        if(strtotime($processos['fim']) < strtotime(date('Y-m-d h:i:s'))){
+          $status = "old";
+          echo "<div class='title-emphasis subtitle'><h1><span style='font-size: medium;'><strong><span>PROCESSOS SELETIVOS PASSADOS</span></strong></span></h1></div>";
+        }
+      } elseif($status == "first"){
+        if(strtotime($processos['fim']) < strtotime(date('Y-m-d h:i:s'))){
+          echo "<p class='nothing-here'>Não há processos seletivos em vigor</p>";
+          echo "<div class='title-emphasis subtitle'><h1><span style='font-size: medium;'><strong><span>PROCESSOS SELETIVOS PASSADOS</span></strong></span></h1></div>";
+          $status = "old";
+        } else $status = "inforce";
+      }
+      $exist = true;
+        ?>
+          <a class="info-item" href="processo-page.php?id=<?php echo $processos['id']?>" style="padding:6px 6px 0">
+            <div class="info-title">
+            <h2> <i class="fa-solid fa-angles-right" style="color:#4f210d;"></i> <?php echo $processos['titulo'] ?></h2>
             </div>
-          </section>
-             
+          </a>
+        <?php
+    }
+    if($exist == false) echo "<p class='nothing-here'>Ainda não há processos seletivos aqui</p>";
+?>          
+        </article>
+        <aside class="info-col2">
+            <div class="title-emphasis side">
+              <h1>DOCUMENTOS IMPORTANTES</h1>
+            </div>
+            <p><a style="text-decoration: none; color: black;" href="documentos-importantes.html#normas-resolucoes"><i class="fa-regular fa-folder-open"></i> Normas e Resoluções</a></p>
+            <p><a style="text-decoration: none; color: black;" href="documentos-importantes.html#oferta-disciplina"><i class="fa-regular fa-folder-open"></i> Oferta de Disciplinas</a></p>
+            <p><a style="text-decoration: none; color: black;" href="documentos-importantes.html#portaria-oficios"><i class="fa-regular fa-folder-open"></i> Portarias e Ofícios</a></p>
+            <p><a style="text-decoration: none; color: black;" href="documentos-importantes.html#processo-seletivo"><i class="fa-regular fa-folder-open"></i> Processo seletivo</a></p>
+            <a class="btn btn-sm btn-outline-primary ver-mais" href="documentos-importantes.html">Ver mais...</a>
+          </aside>
+        </section>
     </main>
     <footer>
         <div class="rodape">
@@ -202,35 +193,5 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="../scripts/main.js"></script>
-    <script>
-      const showGraduates = function(nome,country,link,id){
-        const bi = document.getElementById("back-info");
-        const box = document.getElementById("information");
-        const info = document.getElementById("info"+id).textContent;
-        bi.style.display = "block";
-        box.style.display = "block";
-        let linkinfo = "";
-        if(link!='') linkinfo = "<p><a href='"+handleLink(link)+"' target='_blank' class='onhover' style='text-decoration:none; color:black;'><strong>"+nome+"</strong></a></p>";
-        else linkinfo = "<p><strong>"+nome+"</strong></p>";
-
-        box.innerHTML = linkinfo+"<p>"+country+"</p> <hr> <p>"+info+"</p>";
-      }
-      const desappearInfo = function(){
-        const bi = document.getElementById("back-info");
-        const inf = document.getElementById("information");
-        bi.style.display = "none";
-        inf.style.display = "none";
-        inf.innerHTML = "";
-      }
-      
-      const handleLink = function(link){
-          if(link.indexOf(".") == -1) return link;
-          if(link.indexOf("https://") == -1 && link.indexOf("http://") == -1){
-              return "https://"+link;
-          } else {
-            return link;
-          }
-        }
-    </script>
 </body>
 </html>

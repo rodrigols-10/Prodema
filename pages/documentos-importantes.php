@@ -4,63 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prodema Doutorado | Mapa</title>
+    <title>Prodema Doutorado |</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/main.css">
     <script src="https://kit.fontawesome.com/6354a31a3b.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style/pages.css">
-    <style>
-      #back-info{
-        display: none;
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left:0;
-        background-color: rgba(117, 117, 117, 0.5);
-      }
-      #information{
-        display: none;
-        position: fixed;
-        max-width: 400px;
-        min-height: 180px;
-        padding: 2rem;
-        border-radius: 10px;
-        background-color: white;
-        top: 50vh;
-        left: 50vw;
-        transform: translate(-50%,-50%);
-        text-align: center;
-      }
-      .point{
-        r: 5px;
-        stroke-width: 5px;
-        transition: all 0.5s;
-      }
-      .point:hover {
-        r: 7px;
-        stroke-width: 7px;
-      }
-      .onhover{
-        color: black;
-      }
-      .onhover:hover{
-        color: black;
-        background-color: rgb(228, 236, 240);
-      }
-
-      #mapbox{
-        width:100%;
-        height:600px;
-        margin-bottom: 20px;
-      }
-
-      #mapbox iframe{
-        width:100%;
-        height:100%;
-      }
-    </style>
 </head>
 <body>
   <header id="header_top" class="page">
@@ -128,7 +77,7 @@
                     <a class="nav-link" href="mapa.php">Egressos</a>
                 </li>
                 <li class="nav-item dropdown">
-                  <button class="nav-link">Comunicação<i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
+                  <button class="nav-link">Comunicação <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>
                   <!-- DROPDOWN -->
                   <div class="dropdown-content" style="visibility:hidden">
                       <a href="noticias.php">Notícias</a>
@@ -151,15 +100,105 @@
         </nav>
   </header>
     <main>
-        <section>
+      <section class="info">
+        <article class="info-col1">
             <div class="title-emphasis">
-                <h1>MAPA DOS EGRESSOS</h1>
-            </div>                
-            <div id="mapbox" style="background-color: white;">
-              <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1qwxIWPaRJh-xZsYxIc3JrFI4p1jlxqI&ehbc=2E312F"></iframe>
+                <h1>DOCUMENTOS IMPORTANTES</h1>
             </div>
-          </section>
-             
+            <div id="normas-resolucoes" style="padding-top: 4rem;">
+              <h2><i class="fa-regular fa-folder-open"></i> Normas e Resoluções</h2>
+              <ul class="doc-list"> 
+<?php
+    include('../manager/connection.php'); 
+
+    //Consultando os documentos de Normas e Resoluções
+    $sql_code = "SELECT `nome`,`arquivo`,`area`,`data` FROM documentos WHERE area='Normas e Resoluções' ORDER BY `data`";
+    $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
+      
+    while($documentos = $sql_query->fetch_assoc()){
+        ?>
+          <li><p><a href="../documents/<?php echo $documentos['arquivo'];?>"><i class="fa-regular fa-file"></i> 
+          <?php echo $documentos['nome'];?>
+          </a></p></li>
+    <?php
+    }
+?>
+              </ul>
+            </div>
+            <div id="oferta-disciplina" style="padding-top: 4rem;">
+              <h2><i class="fa-regular fa-folder-open"></i> Oferta de Disciplinas</h2>
+              <ul class="doc-list">
+<?php
+    //Consultando os documentos de Oferta de Disciplinas
+    $sql_code = "SELECT `nome`,`arquivo`,`area`,`data` FROM documentos WHERE area='Oferta de Disciplinas' ORDER BY `data`";
+    $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
+      
+    while($documentos = $sql_query->fetch_assoc()){
+        ?>
+          <li><p><a href="../documents/<?php echo $documentos['arquivo'];?>"><i class="fa-regular fa-file"></i> 
+          <?php echo $documentos['nome'];?>
+          </a></p></li>
+    <?php
+    }
+?>
+              </ul>
+            </div>
+            <div id="portaria-oficios" style="padding-top: 4rem;">
+              <h2><i class="fa-regular fa-folder-open"></i> Portarias e Ofícios</h2>
+              <ul class="doc-list"> 
+<?php
+    //Consultando os documentos de Portarias e Ofícios
+    $sql_code = "SELECT `nome`,`arquivo`,`area`,`data` FROM documentos WHERE area='Portarias e Ofícios' ORDER BY `data`";
+    $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
+      
+    while($documentos = $sql_query->fetch_assoc()){
+        ?>
+          <li><p><a href="../documents/<?php echo $documentos['arquivo'];?>"><i class="fa-regular fa-file"></i> 
+          <?php echo $documentos['nome'];?>
+          </a></p></li>
+    <?php
+    }
+?>
+              </ul>
+            </div>
+            <div id="processo-seletivo" style="padding-top: 4rem;">
+              <h2><i class="fa-regular fa-folder-open"></i> Processo seletivo</h2>
+              <ul class="doc-list">
+<?php
+    //Consultando os documentos de Processo seletivo
+    $sql_code = "SELECT `nome`,`arquivo`,`area`,`data` FROM documentos WHERE area='Processo seletivo' ORDER BY `data`";
+    $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
+      
+    while($documentos = $sql_query->fetch_assoc()){
+        ?>
+          <li><p><a href="../documents/<?php echo $documentos['arquivo'];?>"><i class="fa-regular fa-file"></i> 
+          <?php echo $documentos['nome'];?>
+          </a></p></li>
+    <?php
+    }
+?>
+              </ul>
+            </div>
+            <div id="regimento-interno" style="padding-top: 4rem;">
+              <h2><i class="fa-regular fa-folder-open"></i> Regimento Interno</h2>
+              <ul class="doc-list">
+<?php
+    //Consultando os documentos de Regimento Interno
+    $sql_code = "SELECT `nome`,`arquivo`,`area`,`data` FROM documentos WHERE area='Regimento Interno' ORDER BY `data`";
+    $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição" . $mysqli->error); //apagar o mysqli->error ao final. Ele desformata a página
+      
+    while($documentos = $sql_query->fetch_assoc()){
+        ?>
+          <li><p><a href="../documents/<?php echo $documentos['arquivo'];?>"><i class="fa-regular fa-file"></i> 
+          <?php echo $documentos['nome'];?>
+          </a></p></li>
+    <?php
+    }
+?>
+              </ul>
+            </div>
+        </article>
+      </section>
     </main>
     <footer>
         <div class="rodape">
@@ -202,35 +241,5 @@
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
     <script src="../scripts/main.js"></script>
-    <script>
-      const showGraduates = function(nome,country,link,id){
-        const bi = document.getElementById("back-info");
-        const box = document.getElementById("information");
-        const info = document.getElementById("info"+id).textContent;
-        bi.style.display = "block";
-        box.style.display = "block";
-        let linkinfo = "";
-        if(link!='') linkinfo = "<p><a href='"+handleLink(link)+"' target='_blank' class='onhover' style='text-decoration:none; color:black;'><strong>"+nome+"</strong></a></p>";
-        else linkinfo = "<p><strong>"+nome+"</strong></p>";
-
-        box.innerHTML = linkinfo+"<p>"+country+"</p> <hr> <p>"+info+"</p>";
-      }
-      const desappearInfo = function(){
-        const bi = document.getElementById("back-info");
-        const inf = document.getElementById("information");
-        bi.style.display = "none";
-        inf.style.display = "none";
-        inf.innerHTML = "";
-      }
-      
-      const handleLink = function(link){
-          if(link.indexOf(".") == -1) return link;
-          if(link.indexOf("https://") == -1 && link.indexOf("http://") == -1){
-              return "https://"+link;
-          } else {
-            return link;
-          }
-        }
-    </script>
 </body>
 </html>

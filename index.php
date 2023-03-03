@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prodema - Doutorado em Desenvolvimento e Meio Ambiente</title>
+    <title>Prodema | Doutorado em Desenvolvimento e Meio Ambiente</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="style/main.css">
@@ -56,8 +56,8 @@
                 <!-- DROPDOWN -->
                 <div class="dropdown-content" style="visibility:hidden">
                     <a href="pages/apresentacao.html">Apresentação</a>
-                    <a href="pages/corpo-docente.html">Corpo Docente</a>
-                    <a href="pages/processo-seletivo.html">Processo Seletivo</a>
+                    <a href="pages/corpo-docente.php">Corpo Docente</a>
+                    <a href="pages/processo-seletivo.php">Processo Seletivo</a>
                     <a href="pages/documentos-importantes.html">Documentos Importantes</a>
                     </div>
                 </li>
@@ -75,7 +75,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="pages/mapa.html">Egressos</a>
+                    <a class="nav-link" href="pages/mapa.php">Egressos</a>
                 </li>
                 <li class="nav-item dropdown">
                   <button class="nav-link">Comunicação <i aria-hidden="true" class="fa-solid fa-angle-down"></i></button>

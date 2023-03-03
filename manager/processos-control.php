@@ -31,45 +31,45 @@
       <section class="info">
         <article class="info-col1">
           <div class="title-emphasis">
-            <h1>NOTÍCIAS</h1>
+            <h1>PROCESSOS SELETIVOS</h1>
           </div>
-          <div id="noticias">
-            <!-- ITENS DE NOTICIAS -->
-            <a href="criar-noticia.php" class="info-item" style="justify-content:center;align-items:center;height:100px;border:2px solid #ccc;border-radius:10px;">
-            <i style="font-size: 2rem; color:gray;" class="fa-solid fa-plus"></i> <span style="font-size: 1.5rem; color:gray;font-weight:bold;">NOVA NOTÍCIA</span>
+          <div id="processos">
+            <!-- ITENS DE PROCESSOS -->
+            <a href="criar-processo.php" class="info-item" style="justify-content:center;align-items:center;height:100px;border:2px solid #ccc;border-radius:10px;">
+            <i style="font-size: 2rem; color:gray;" class="fa-solid fa-plus"></i> <span style="font-size: 1.5rem; color:gray;font-weight:bold;">NOVO PROCESSO SELETIVO</span>
             </a>
 <?php
     include('connection.php');
 
     if (isset($_GET['id'])) {
         $id = $_GET['id'];  
-        $sql_code = "DELETE FROM `noticias` WHERE `noticias`.`id` = $id";  
+        $sql_code = "DELETE FROM `processos` WHERE `processos`.`id` = $id";  
         $sql_query = $mysqli->query($sql_code) or die("<p>Falha na operação</p>");  
         if ($sql_query) {  
-             header('location:noticias-control.php');  
+             header('location:processos-control.php');  
         }else{  
              echo "Error: ".mysqli_error($mysqli);  
         }  
     }  
 
-    $sql_code = "SELECT * FROM noticias ORDER BY data DESC";
+    $sql_code = "SELECT * FROM processos ORDER BY data DESC";
     $sql_query = $mysqli->query($sql_code) or die("Falha na execução da requisição");
       
-    while($noticias = $sql_query->fetch_assoc()){
+    while($processos = $sql_query->fetch_assoc()){
         ?>
         <div style="display:flex; flex-wrap:nowrap; justify-content: space-between;align-items:center;">
             <div class="info-item" style="background-color:white;">
                 <figure class="info-img" title="imagem" alt="imagem">
-                <img src="../uploads/<?php echo $noticias['banner'] ?>" style="width:100px;height: 100px;object-fit: cover">
+                <img src="../assets\defaultprocess.png" style="width:100px;height: 100px;object-fit: cover">
                 </figure>
                 <div class="info-title">
-                <h2><?php echo $noticias['titulo'] ?></h2>
-                <p><i class="fa-regular fa-calendar"></i> <?php echo date_format(new DateTime($noticias['data']),'d.m.Y') ?></p>
+                <h2><?php echo $processos['titulo'] ?></h2>
+                <p><i class="fa-regular fa-calendar"></i> <?php echo date_format(new DateTime($processos['data']),'d.m.Y') ?></p>
                 </div>
             </div>
-            <a class="info-item" style="color: red; font-size: 2rem; margin: auto 1rem; padding: 1rem" href="noticias-control.php?id=<?php echo $noticias['id']?>">
+            <a class="info-item" style="color: red; font-size: 2rem; margin: auto 1rem; padding: 1rem" href="processos-control.php?id=<?php echo $processos['id']?>">
                 <i class="fa-solid fa-trash-can"></i>
-                </a>
+            </a>
         </div>
         <?php
     }
