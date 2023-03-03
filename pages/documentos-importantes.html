@@ -57,7 +57,7 @@
                     <a href="apresentacao.html">Apresentação</a>
                     <a href="corpo-docente.php">Corpo Docente</a>
                     <a href="processo-seletivo.php">Processo Seletivo</a>
-                    <a href="documentos-importantes.html">Documentos Importantes</a>
+                    <a href="documentos-importantes.php">Documentos Importantes</a>
                     </div>
                 </li>
                 <li class="nav-item">
